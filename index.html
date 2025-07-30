@@ -8,55 +8,62 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #f4f4f7;
-      color: #222;
-      max-width: 900px;
-      margin: 3rem auto;
+      margin: 0;
       padding: 2rem;
-      line-height: 1.7;
+      background: linear-gradient(to right, #e6f0ff, #f9f9ff);
+      color: #222;
+    }
+
+    main {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1, h2 {
+      color: #1a1a1a;
     }
 
     h1 {
-      font-size: 2.4rem;
+      font-size: 2.5rem;
       margin-bottom: 0.2rem;
     }
 
     h2 {
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       margin-top: 2.5rem;
-      color: #333;
+      border-bottom: 2px solid #0366d6;
+      display: inline-block;
+      padding-bottom: 4px;
     }
 
     a {
       color: #0366d6;
       text-decoration: none;
+      font-weight: 500;
     }
 
     a:hover {
       text-decoration: underline;
     }
 
-    .profile {
+    .card, .project {
       background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-      margin-bottom: 2rem;
-      text-align: center;
+      padding: 1.5rem 2rem;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+      margin-top: 1.5rem;
+      transition: transform 0.2s ease;
     }
 
-    .profile h1 {
-      margin-bottom: 0.5rem;
-    }
-
-    .profile p {
-      color: #555;
+    .project:hover {
+      transform: translateY(-3px);
     }
 
     .button {
       display: inline-block;
       margin-top: 1rem;
-      padding: 0.5rem 1.2rem;
+      margin-right: 0.5rem;
+      padding: 0.6rem 1.2rem;
       border-radius: 8px;
       background-color: #0366d6;
       color: white;
@@ -69,26 +76,14 @@
       background-color: #024a9c;
     }
 
-    .project {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-      margin-bottom: 2rem;
-    }
-
-    .project h3 {
-      margin-top: 0;
-    }
-
     .tags {
       margin-top: 0.5rem;
     }
 
     .tag {
       display: inline-block;
-      background-color: #e6eaf0;
-      color: #333;
+      background-color: #dce6f5;
+      color: #03428c;
       font-size: 0.85rem;
       padding: 0.3rem 0.6rem;
       border-radius: 6px;
@@ -99,49 +94,22 @@
     .contact p {
       margin: 0.4rem 0;
     }
+
+    .header {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
   </style>
 </head>
 <body>
-
-  <div class="profile">
-    <h1>Aiden Mori-Lair</h1>
-    <p>Aspiring Data & Tech Consultant | Analytics • Optimization • Python • SQL</p>
-    <a href="mailto:aidenklair@gmail.com" class="button">Email Me</a>
-    <a href="https://www.linkedin.com/in/aiden-mori-lair-a61708239/" class="button" target="_blank">LinkedIn</a>
-    <!-- Optional resume link: replace '#' with your actual PDF URL -->
-    <a href="#" class="button" target="_blank">View Résumé</a>
-  </div>
-
-  <h2>Projects</h2>
-
-  <div class="project">
-    <h3>Optimal Schedule Builder</h3>
-    <p>A Python-based tool that helps students build optimized class schedules using constraints like preferred time slots and workload balance.</p>
-    <div class="tags">
-      <span class="tag">Python</span>
-      <span class="tag">Algorithms</span>
-      <span class="tag">Data Structures</span>
-    </div>
-    <a href="https://github.com/akira23456/Optimal-Schedule-Builder" class="button" target="_blank">View Project</a>
-  </div>
-
-  <div class="project">
-    <h3>UGAHacks Project</h3>
-    <p>A web app developed at UGAHacks 2024 to help students manage semester goals and productivity through a clean user interface and collaborative features.</p>
-    <div class="tags">
-      <span class="tag">JavaScript</span>
-      <span class="tag">HTML/CSS</span>
-      <span class="tag">Team Project</span>
-    </div>
-    <a href="https://github.com/akira23456/UGAHacks-Project" class="button" target="_blank">View Project</a>
-  </div>
-
-  <h2>Contact</h2>
-  <div class="contact">
-    <p>Email: <a href="mailto:aidenklair@gmail.com">aidenklair@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/aiden-mori-lair-a61708239/" target="_blank">linkedin.com/in/aiden-mori-lair-a61708239</a></p>
-    <p>GitHub: <a href="https://github.com/akira23456" target="_blank">github.com/akira23456</a></p>
-  </div>
-
-</body>
-</html>
+  <main>
+    <div class="header">
+      <h1>Aiden Mori-Lair</h1>
+      <p>Data & Tech Consulting • Python • SQL • Optimization • Analytics</p>
+      <a href="mailto:aidenklair@gmail.com" class="button">Email Me</a>
+      <a href="https://www.linkedin.com/in/aiden-mori-lair-a61708239/" class="button" target="_blank">LinkedIn</a>
+      <a href="#" class="button" target="_blank">View Résu_
