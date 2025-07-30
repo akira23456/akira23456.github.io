@@ -4,63 +4,144 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Aiden Mori-Lair</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     body {
-      font-family: system-ui, sans-serif;
-      max-width: 700px;
+      font-family: 'Inter', sans-serif;
+      background-color: #f4f4f7;
+      color: #222;
+      max-width: 900px;
       margin: 3rem auto;
-      padding: 1rem;
-      line-height: 1.6;
+      padding: 2rem;
+      line-height: 1.7;
     }
+
     h1 {
-      margin-bottom: 0.2em;
+      font-size: 2.4rem;
+      margin-bottom: 0.2rem;
     }
+
     h2 {
-      margin-top: 2em;
+      font-size: 1.6rem;
+      margin-top: 2.5rem;
+      color: #333;
     }
+
     a {
       color: #0366d6;
       text-decoration: none;
     }
+
     a:hover {
       text-decoration: underline;
     }
-    ul {
-      padding-left: 1.2em;
+
+    .profile {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      margin-bottom: 2rem;
+      text-align: center;
     }
-    li {
-      margin-bottom: 1em;
+
+    .profile h1 {
+      margin-bottom: 0.5rem;
+    }
+
+    .profile p {
+      color: #555;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1.2rem;
+      border-radius: 8px;
+      background-color: #0366d6;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.2s ease;
+    }
+
+    .button:hover {
+      background-color: #024a9c;
+    }
+
+    .project {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      margin-bottom: 2rem;
+    }
+
+    .project h3 {
+      margin-top: 0;
+    }
+
+    .tags {
+      margin-top: 0.5rem;
+    }
+
+    .tag {
+      display: inline-block;
+      background-color: #e6eaf0;
+      color: #333;
+      font-size: 0.85rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      margin-right: 0.5rem;
+      margin-top: 0.3rem;
+    }
+
+    .contact p {
+      margin: 0.4rem 0;
     }
   </style>
 </head>
 <body>
-  <h1>Aiden Mori-Lair</h1>
-  <p>
-    Hi! I’m a student passionate about data analytics, optimization, and technology consulting.
-    I'm currently preparing for EY Tech Consulting (Data & Analytics track) through hands-on technical and hackathon projects.
-  </p>
+
+  <div class="profile">
+    <h1>Aiden Mori-Lair</h1>
+    <p>Aspiring Data & Tech Consultant | Analytics • Optimization • Python • SQL</p>
+    <a href="mailto:aidenklair@gmail.com" class="button">Email Me</a>
+    <a href="https://www.linkedin.com/in/aiden-mori-lair-a61708239/" class="button" target="_blank">LinkedIn</a>
+    <!-- Optional resume link: replace '#' with your actual PDF URL -->
+    <a href="#" class="button" target="_blank">View Résumé</a>
+  </div>
 
   <h2>Projects</h2>
-  <ul>
-    <li>
-      <a href="https://github.com/akira23456/Optimal-Schedule-Builder" target="_blank">
-        Optimal Schedule Builder
-      </a> – A Python tool that generates optimized university class schedules based on user-selected constraints, time blocks, and workload balance.
-    </li>
-    <li>
-      <a href="https://github.com/akira23456/UGAHacks-Project" target="_blank">
-        UGAHacks Project
-      </a> – A full-stack web app built at UGAHacks 2024 to help students set and manage semester goals with a clean, user-focused design.
-    </li>
-  </ul>
+
+  <div class="project">
+    <h3>Optimal Schedule Builder</h3>
+    <p>A Python-based tool that helps students build optimized class schedules using constraints like preferred time slots and workload balance.</p>
+    <div class="tags">
+      <span class="tag">Python</span>
+      <span class="tag">Algorithms</span>
+      <span class="tag">Data Structures</span>
+    </div>
+    <a href="https://github.com/akira23456/Optimal-Schedule-Builder" class="button" target="_blank">View Project</a>
+  </div>
+
+  <div class="project">
+    <h3>UGAHacks Project</h3>
+    <p>A web app developed at UGAHacks 2024 to help students manage semester goals and productivity through a clean user interface and collaborative features.</p>
+    <div class="tags">
+      <span class="tag">JavaScript</span>
+      <span class="tag">HTML/CSS</span>
+      <span class="tag">Team Project</span>
+    </div>
+    <a href="https://github.com/akira23456/UGAHacks-Project" class="button" target="_blank">View Project</a>
+  </div>
 
   <h2>Contact</h2>
-  <p>Email: aiden@example.com</p>
-  <p>
-    LinkedIn:
-    <a href="https://www.linkedin.com/in/aiden-mori-lair-a61708239/" target="_blank">
-      linkedin.com/in/aiden-mori-lair-a61708239
-    </a>
-  </p>
+  <div class="contact">
+    <p>Email: <a href="mailto:aidenklair@gmail.com">aidenklair@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/aiden-mori-lair-a61708239/" target="_blank">linkedin.com/in/aiden-mori-lair-a61708239</a></p>
+    <p>GitHub: <a href="https://github.com/akira23456" target="_blank">github.com/akira23456</a></p>
+  </div>
+
 </body>
 </html>
