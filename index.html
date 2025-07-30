@@ -26,58 +26,76 @@
     h1 {
       font-size: 2.5rem;
       margin-bottom: 0.2rem;
+      text-align: center;
     }
 
     h2 {
       font-size: 1.8rem;
       margin-top: 2.5rem;
-      border-bottom: 2px solid #0366d6;
+      border-bottom: 3px solid #0366d6;
       display: inline-block;
-      padding-bottom: 4px;
+      padding-bottom: 6px;
+      font-weight: 600;
+    }
+
+    p.subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #555;
+      margin-top: 0;
+      margin-bottom: 1rem;
     }
 
     a {
       color: #0366d6;
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
     }
 
-    a:hover {
+    a:hover,
+    a:focus {
       text-decoration: underline;
+      outline: none;
     }
 
     .card, .project {
       background: white;
-      padding: 1.5rem 2rem;
+      padding: 1.75rem 2.25rem;
       border-radius: 16px;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
-      margin-top: 1.5rem;
-      transition: transform 0.2s ease;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
+      margin-top: 2rem;
+      transition: transform 0.25s ease;
     }
 
-    .project:hover {
-      transform: translateY(-3px);
+    .project:hover,
+    .project:focus-within {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.1);
     }
 
     .button {
       display: inline-block;
       margin-top: 1rem;
-      margin-right: 0.5rem;
-      padding: 0.6rem 1.2rem;
-      border-radius: 8px;
+      margin-right: 0.75rem;
+      padding: 0.65rem 1.3rem;
+      border-radius: 10px;
       background-color: #0366d6;
       color: white;
+      font-weight: 600;
       text-decoration: none;
-      font-weight: 500;
-      transition: background-color 0.2s ease;
+      box-shadow: 0 3px 8px rgb(3 102 214 / 0.5);
+      transition: background-color 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .button:hover {
+    .button:hover,
+    .button:focus {
       background-color: #024a9c;
+      box-shadow: 0 6px 15px rgb(2 74 156 / 0.75);
+      outline: none;
     }
 
     .tags {
-      margin-top: 0.5rem;
+      margin-top: 0.7rem;
     }
 
     .tag {
@@ -85,44 +103,64 @@
       background-color: #dce6f5;
       color: #03428c;
       font-size: 0.85rem;
-      padding: 0.3rem 0.6rem;
-      border-radius: 6px;
-      margin-right: 0.5rem;
-      margin-top: 0.3rem;
+      padding: 0.38rem 0.7rem;
+      border-radius: 7px;
+      margin-right: 0.6rem;
+      margin-top: 0.35rem;
+      font-weight: 600;
+      user-select: none;
     }
 
     .contact p {
-      margin: 0.4rem 0;
+      margin: 0.5rem 0;
+      font-size: 1rem;
     }
 
-    .header {
-      margin-bottom: 2rem;
-      text-align: center;
+    .contact a {
+      font-weight: 600;
     }
 
     ul {
-      padding-left: 1.2rem;
+      padding-left: 1.3rem;
+      margin-top: 0.5rem;
+      line-height: 1.5;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+
+      main {
+        max-width: 100%;
+      }
+
+      .button {
+        margin-bottom: 0.8rem;
+      }
     }
   </style>
 </head>
 <body>
   <main>
-    <div class="header">
-      <h1>Aiden Mori-Lair</h1>
-      <p>Data & Tech Consulting • Python • SQL • Optimization • Analytics</p>
+    <h1>Aiden Mori-Lair</h1>
+    <p class="subtitle">Data & Tech Consulting • Python • SQL • Optimization • Analytics</p>
+
+    <div style="text-align:center;">
       <a href="mailto:aidenklair@gmail.com" class="button">Email Me</a>
-      <a href="https://www.linkedin.com/in/aiden-mori-lair-a61708239/" class="button" target="_blank">LinkedIn</a>
-      <a href="AidenMLResume2025 (1).pdf" class="button" target="_blank">View Résumé</a>
+      <a href="https://www.linkedin.com/in/aiden-mori-lair-a61708239/" class="button" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="AidenMLResume2025%20(1).pdf" class="button" target="_blank" rel="noopener noreferrer">View Résumé</a>
     </div>
 
     <h2>About Me</h2>
-    <div class="card">
-      <p>I’m a student with a passion for using data to drive smarter decisions. I’m particularly interested in optimization, business intelligence, and solving real-world problems using technology. I’m currently preparing for roles in data and analytics consulting.</p>
+    <div class="card" tabindex="0">
+      <p>I’m a student passionate about using data to drive smarter decisions. I’m focused on optimization, business intelligence, and solving real-world problems through technology. Currently preparing for roles in data and analytics consulting.</p>
     </div>
 
     <h2>Skills</h2>
-    <div class="card">
-      <div class="tags">
+    <div class="card" tabindex="0">
+      <div class="tags" aria-label="Skills">
         <span class="tag">Python</span>
         <span class="tag">SQL</span>
         <span class="tag">Power BI</span>
@@ -136,30 +174,30 @@
 
     <h2>Projects</h2>
 
-    <div class="project">
-      <h3>Optimal Schedule Builder</h3>
+    <section class="project" tabindex="0" aria-labelledby="proj1-title">
+      <h3 id="proj1-title">Optimal Schedule Builder</h3>
       <p>A Python-based tool that helps students build optimized class schedules using constraints like preferred time slots and workload balance.</p>
-      <div class="tags">
-        <span class="tag">Java</span>
+      <div class="tags" aria-label="Technologies used in Optimal Schedule Builder">
+        <span class="tag">Python</span>
         <span class="tag">Algorithms</span>
         <span class="tag">Data Structures</span>
       </div>
-      <a href="https://github.com/akira23456/Optimal-Schedule-Builder" class="button" target="_blank">View Project</a>
-    </div>
+      <a href="https://github.com/akira23456/Optimal-Schedule-Builder" class="button" target="_blank" rel="noopener noreferrer">View Project</a>
+    </section>
 
-    <div class="project">
-      <h3>UGAHacks Project</h3>
+    <section class="project" tabindex="0" aria-labelledby="proj2-title">
+      <h3 id="proj2-title">UGAHacks Project</h3>
       <p>A web app developed at UGAHacks 2024 to help students manage semester goals and productivity through a clean UI and collaborative features.</p>
-      <div class="tags">
+      <div class="tags" aria-label="Technologies used in UGAHacks Project">
         <span class="tag">JavaScript</span>
         <span class="tag">HTML/CSS</span>
         <span class="tag">Hackathon</span>
       </div>
-      <a href="https://github.com/akira23456/UGAHacks-Project" class="button" target="_blank">View Project</a>
-    </div>
+      <a href="https://github.com/akira23456/UGAHacks-Project" class="button" target="_blank" rel="noopener noreferrer">View Project</a>
+    </section>
 
     <h2>Highlights</h2>
-    <div class="card">
+    <div class="card" tabindex="0">
       <ul>
         <li>🎯 UGAHacks 2024 Participant</li>
         <li>📊 Built a course optimization tool using SpringBoot</li>
@@ -168,10 +206,10 @@
     </div>
 
     <h2>Contact</h2>
-    <div class="card contact">
+    <div class="card contact" tabindex="0">
       <p>Email: <a href="mailto:aidenklair@gmail.com">aidenklair@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/aiden-mori-lair-a61708239/" target="_blank">linkedin.com/in/aiden-mori-lair-a61708239</a></p>
-      <p>GitHub: <a href="https://github.com/akira23456" target="_blank">github.com/akira23456</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/aiden-mori-lair-a61708239/" target="_blank" rel="noopener noreferrer">linkedin.com/in/aiden-mori-lair-a61708239</a></p>
+      <p>GitHub: <a href="https://github.com/akira23456" target="_blank" rel="noopener noreferrer">github.com/akira23456</a></p>
     </div>
   </main>
 </body>
