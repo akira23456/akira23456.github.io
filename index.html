@@ -39,8 +39,8 @@
         .bubbly-background {
             position: fixed;
             top: 0;
-            left: 0;
-            width: 100%;
+            left: -25vw; /* Position the container to the left */
+            width: 150vw; /* Make the container 150% of the viewport width */
             height: 100%;
             z-index: -1; /* Place it behind the main content */
             overflow: hidden;
@@ -238,11 +238,14 @@
         <!-- Footer -->
         <footer class="bg-gray-900 p-6 text-center text-sm text-gray-400 flex flex-col items-center space-y-2">
             <p>&copy; <span id="current-year"></span> Aiden Mori-Lair. All Rights Reserved.</p>
-            <!-- New Resume Link -->
-            <a href="https://akira23456.github.io/Resume2026Updated%20(1).pdf" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors">
-                View My Resume
+            <!-- New Resume Link with PDF icon -->
+            <a href="https://akira23456.github.io/Resume2026Updated%20(1).pdf" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors flex items-center space-x-2">
+                <!-- PDF Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                <span>View My Resume</span>
             </a>
-            <!-- Note: Please change the resume link above to the exact path of your PDF file in your GitHub repository. -->
         </footer>
     </div>
 
@@ -258,7 +261,7 @@
             function createBubble() {
                 const bubble = document.createElement('div');
                 bubble.classList.add('bubble');
-                const size = Math.random() * 50 + 20;
+                const size = Math.random() * 80 + 40; // Increased bubble size
                 bubble.style.width = `${size}px`;
                 bubble.style.height = `${size}px`;
                 bubble.style.left = `${Math.random() * 100}vw`;
