@@ -34,6 +34,7 @@ body::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
 
 
 /* --- VIGNETTE/FLARE EFFECT --- */
+/* Creates a soft, centered purple spotlight on the main content */
 body::after {
     content: '';
     position: fixed;
@@ -41,35 +42,70 @@ body::after {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Place it above the particle background but below content */
+    z-index: -1;
     pointer-events: none;
-    /* Subtle radial gradient fading from center to edge, creating a spotlight effect */
     background: radial-gradient(
         circle at center, 
-        rgba(168, 85, 247, 0.03) 0%, /* Very faint purple glow in the center */
-        rgba(10, 10, 10, 1) 90% /* Fades to the background color at the edges */
+        rgba(168, 85, 247, 0.03) 0%, 
+        rgba(10, 10, 10, 1) 90%
     );
 }
 
-
-/* --- MODERN PARTICLE BACKGROUND (Increased Spark) --- */
+/* --- MODERN PARTICLE BACKGROUND (Brighter, Sparkling, Animated) --- */
 .particle-background {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -2; /* Set below the vignette/flare */
+    z-index: -2; 
     overflow: hidden;
     background-color: var(--color-bg-dark);
-    /* Tighter, brighter dot grid pattern for more 'spark' */
-    background-image: radial-gradient(rgba(168, 85, 247, 0.2) 1.5px, transparent 1.5px);
-    background-size: 25px 25px; /* Tighter grid */
+    /* Base Grid (Brighter Purple) - Moving */
+    background-image: radial-gradient(rgba(168, 85, 247, 0.5) 2px, transparent 2px); 
+    background-size: 25px 25px; 
     animation: background-pan 30s linear infinite;
 }
+
+/* Sparkle Layer 1: Subtle white shimmer (faster blink) */
+.particle-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Static white dots, slightly offset grid */
+    background-image: radial-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 1px); 
+    background-size: 35px 35px;
+    animation: sparkle-blink 4s ease-in-out infinite alternate; 
+}
+
+/* Sparkle Layer 2: Deeper, slower purple shimmer (slower blink) */
+.particle-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Purple dots, slightly larger/offset grid */
+    background-image: radial-gradient(rgba(168, 85, 247, 0.6) 2.5px, transparent 2.5px); 
+    background-size: 50px 50px;
+    animation: sparkle-blink 6s ease-out infinite alternate-reverse;
+}
+
+/* Keyframes for the scrolling background */
 @keyframes background-pan {
     0% { background-position: 0% 0%; }
-    100% { background-position: 25px 25px; } /* Updated to match new size */
+    100% { background-position: 25px 25px; } 
+}
+
+/* Keyframes for the sparkling/blinking effect */
+@keyframes sparkle-blink {
+    0% { opacity: 0.2; }
+    50% { opacity: 0.9; } /* Peaks in brightness */
+    100% { opacity: 0.4; } 
 }
 /* --- END MODERN PARTICLE BACKGROUND --- */
 
