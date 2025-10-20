@@ -1,167 +1,220 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aiden Mori-Lair - Portfolio</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #0d1117; color: #c9d1d9; overflow-x: hidden; }
-        .nav-link.active { color: #58a6ff; border-bottom: 2px solid #58a6ff; }
-        body::-webkit-scrollbar { width: 8px; }
-        body::-webkit-scrollbar-track { background: #161b22; }
-        body::-webkit-scrollbar-thumb { background-color: #30363d; border-radius: 4px; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aiden Mori-Lair - Portfolio</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body { font-family: 'Inter', sans-serif; background-color: #0d1117; color: #c9d1d9; overflow-x: hidden; }
+.nav-link.active { color: #58a6ff; border-bottom: 2px solid #58a6ff; }
+body::-webkit-scrollbar { width: 8px; }
+body::-webkit-scrollbar-track { background: #161b22; }
+body::-webkit-scrollbar-thumb { background-color: #30363d; border-radius: 4px; }
 
-        .bubbly-background { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; }
-        .bubble { position: absolute; background-color: rgba(88, 166, 255, 0.1); border-radius: 50%; pointer-events: none; opacity: 0; animation: bubble-movement linear infinite; }
-        .bubble.slow { animation-duration: 10s; }
-        .bubble.fast { animation-duration: 5s; }
-        @keyframes bubble-movement { 0% { transform: translateY(0); opacity: 0; } 10% { opacity: 0.6; } 90% { opacity: 0.6; } 100% { transform: translateY(-100vh); opacity: 0; } }
+.bubbly-background { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; }
+.bubble { position: absolute; background-color: rgba(88, 166, 255, 0.1); border-radius: 50%; pointer-events: none; opacity: 0; animation: bubble-movement linear infinite; }
+.bubble.slow { animation-duration: 10s; }
+.bubble.fast { animation-duration: 5s; }
+@keyframes bubble-movement { 0% { transform: translateY(0); opacity: 0; } 10% { opacity: 0.6; } 90% { opacity: 0.6; } 100% { transform: translateY(-100vh); opacity: 0; } }
 
-        .typing-cursor { font-weight: 300; animation: blink-caret .75s step-end infinite; }
-        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: #c9d1d9; } }
-    </style>
+.typing-cursor { font-weight: 300; animation: blink-caret .75s step-end infinite; }
+@keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: #c9d1d9; } }
+</style>
 </head>
 <body class="antialiased">
 
-    <div id="bubbly-bg" class="bubbly-background"></div>
+<div id="bubbly-bg" class="bubbly-background"></div>
 
-    <div class="relative z-10">
-        <!-- Header -->
-        <header class="sticky top-0 z-50 bg-gray-900 bg-opacity-80 backdrop-blur-sm p-4 shadow-lg border-b border-gray-700">
-            <nav class="container mx-auto flex justify-between items-center">
-                <a href="#hero" class="text-xl font-bold text-white hover:text-blue-400 transition-colors">Aiden Mori-Lair</a>
-                <div class="hidden md:flex space-x-6 text-sm font-medium">
-                    <a href="#about" class="nav-link transition-colors hover:text-white">About</a>
-                    <a href="#projects" class="nav-link transition-colors hover:text-white">Projects</a>
-                    <a href="#contact" class="nav-link transition-colors hover:text-white">Contact</a>
-                </div>
-            </nav>
-        </header>
+<div class="relative z-10">
+<header class="sticky top-0 z-50 bg-gray-900 bg-opacity-80 backdrop-blur-sm p-4 shadow-lg border-b border-gray-700">
+<nav class="container mx-auto flex justify-between items-center">
+<a href="#hero" class="text-xl font-bold text-white hover:text-blue-400 transition-colors">Aiden Mori-Lair</a>
+<div class="hidden md:flex space-x-6 text-sm font-medium">
+<a href="#about" class="nav-link transition-colors hover:text-white">About</a>
+<a href="#projects" class="nav-link transition-colors hover:text-white">Projects</a>
+<a href="#contact" class="nav-link transition-colors hover:text-white">Contact</a>
+</div>
+</nav>
+</header>
 
-        <!-- Hero -->
-        <section id="hero" class="container mx-auto py-24 px-6 md:px-12 text-center min-h-screen flex flex-col justify-center items-center">
-            <div class="space-y-4">
-                <p class="text-lg font-medium text-blue-400">Hello, I'm</p>
-                <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight tracking-tight">
-                    <span id="typing-text"></span><span class="typing-cursor">|</span>
-                </h1>
-                <p class="text-lg md:text-xl max-w-2xl mx-auto text-gray-400">
-                    A passionate data analyst and developer, specializing in turning complex data into actionable insights and building innovative solutions.
-                </p>
-                <a href="#projects" class="inline-block mt-8 px-8 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 transition-colors transform hover:scale-105">
-                    View My Projects
-                </a>
-            </div>
-        </section>
+<section id="hero" class="container mx-auto py-24 px-6 md:px-12 text-center min-h-screen flex flex-col justify-center items-center">
+<div class="space-y-4">
+<p class="text-lg font-medium text-blue-400">Hello, I'm</p>
+<h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight tracking-tight">
+<span id="typing-text"></span><span class="typing-cursor">|</span>
+</h1>
+<p class="text-lg md:text-xl max-w-2xl mx-auto text-gray-400">
+A passionate data analyst and developer, specializing in turning complex data into actionable insights and building innovative solutions.
+</p>
+<a href="#projects" class="inline-block mt-8 px-8 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 transition-colors transform hover:scale-105">
+View My Projects
+</a>
+</div>
+</section>
 
-        <!-- About -->
-        <section id="about" class="py-20 px-6 md:px-12">
-            <div class="container mx-auto flex flex-col md:flex-row items-center justify-center space-y-12 md:space-y-0 md:space-x-12">
-                <div class="flex-shrink-0">
-                    <img src="https://akira23456.github.io/1727299565244.jpg" alt="Aiden Mori-Lair's profile photo" class="w-64 h-64 rounded-full border-4 border-blue-500 object-cover shadow-xl">
-                </div>
-                <div class="max-w-xl text-center md:text-left space-y-4">
-                    <h2 class="text-4xl font-bold text-white mb-4">About Me</h2>
-                    <p class="text-gray-400 leading-relaxed">
-                        I am a student at the University of Georgia, pursuing a dual degree in Computer Science and Financial Mathematics. My academic journey has equipped me with a strong foundation in both quantitative analysis and software development. I am deeply passionate about leveraging data to solve complex problems and am particularly interested in the intersection of data analytics and back-end development. My goal is to build robust, scalable systems that can handle and process large datasets efficiently, turning raw data into meaningful and actionable insights.
-                    </p>
-                </div>
-            </div>
-        </section>
+<section id="about" class="py-20 px-6 md:px-12">
+<div class="container mx-auto flex flex-col md:flex-row items-center justify-center space-y-12 md:space-y-0 md:space-x-12">
+<div class="flex-shrink-0">
+<img src="https://akira23456.github.io/1727299565244.jpg" alt="Aiden Mori-Lair's profile photo" class="w-64 h-64 rounded-full border-4 border-blue-500 object-cover shadow-xl">
+</div>
+<div class="max-w-xl text-center md:text-left space-y-4">
+<h2 class="text-4xl font-bold text-white mb-4">About Me</h2>
+<p class="text-gray-400 leading-relaxed">
+I am a student at the University of Georgia, pursuing a dual degree in Computer Science and Financial Mathematics. My academic journey has equipped me with a strong foundation in both quantitative analysis and software development. I am deeply passionate about leveraging data to solve complex problems and am particularly interested in the intersection of data analytics and back-end development. My goal is to build robust, scalable systems that can handle and process large datasets efficiently, turning raw data into meaningful and actionable insights.
+</p>
+</div>
+</div>
+</section>
 
-        <!-- Projects -->
-        <section id="projects" class="py-20 px-6 md:px-12">
-            <div class="container mx-auto">
-                <h2 class="text-4xl font-bold text-white text-center mb-12">My Projects</h2>
-                <div class="space-y-12">
+<section id="projects" class="py-20 px-6 md:px-12">
+<div class="container mx-auto">
+<h2 class="text-4xl font-bold text-white text-center mb-12">My Projects</h2>
+<div class="space-y-12">
 
-                    <!-- UGAHacks App Developer -->
-                    <div class="flex flex-col md:flex-row items-center md:items-start bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 space-y-6 md:space-y-0 md:space-x-8">
-                        <div class="w-full md:w-1/2 flex justify-center">
-                            <img src="https://placehold.co/600x400/161B22/58A6FF?text=UGAHacks+App" alt="UGAHacks App screenshot" class="w-full h-auto rounded-lg shadow-lg object-cover">
-                        </div>
-                        <div class="w-full md:w-1/2 text-center md:text-left space-y-4">
-                            <h3 class="text-3xl font-semibold text-white">UGAHacks App Developer</h3>
-                            <p class="text-gray-400 leading-relaxed">
-                                Developed a TikTok-style video feed web app enabling communication between creators and fans. Implemented frontend using React and backend using Django, connecting to a relational database for efficient data storage.
-                            </p>
-                            <a href="https://github.com/akira23456/UGAHacks-Project" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 text-sm font-medium text-blue-300 bg-blue-800 rounded-full hover:bg-blue-700 transition-colors transform hover:scale-105">
-                                View Project
-                            </a>
-                        </div>
-                    </div>
+<!-- UGAHacks App -->
+<div class="flex flex-col md:flex-row items-center md:items-start bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 space-y-6 md:space-y-0 md:space-x-8">
+<div class="w-full md:w-1/2 flex justify-center">
+<img src="https://placehold.co/600x400/161B22/58A6FF?text=UGAHacks+App" alt="UGAHacks App screenshot" class="w-full h-auto rounded-lg shadow-lg object-cover">
+</div>
+<div class="w-full md:w-1/2 text-center md:text-left space-y-4">
+<h3 class="text-3xl font-semibold text-white">UGAHacks App Developer</h3>
+<p class="text-gray-400 leading-relaxed">
+Developed a TikTok-style video feed web app enabling communication between creators and fans. Implemented frontend using React and backend using Django, connecting to a relational database for efficient data storage.
+</p>
+<a href="https://github.com/akira23456/UGAHacks-Project" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 text-sm font-medium text-blue-300 bg-blue-800 rounded-full hover:bg-blue-700 transition-colors transform hover:scale-105">
+View Project
+</a>
+</div>
+</div>
 
-                    <!-- DevDogs Database Developer -->
-                    <div class="flex flex-col md:flex-row items-center md:items-start bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 space-y-6 md:space-y-0 md:space-x-8">
-                        <div class="w-full md:w-1/2 flex justify-center">
-                            <img src="https://placehold.co/600x400/161B22/58A6FF?text=DevDogs+DB" alt="DevDogs Database screenshot" class="w-full h-auto rounded-lg shadow-lg object-cover">
-                        </div>
-                        <div class="w-full md:w-1/2 text-center md:text-left space-y-4">
-                            <h3 class="text-3xl font-semibold text-white">DevDogs Database Developer</h3>
-                            <p class="text-gray-400 leading-relaxed">
-                                Designed backend database logic for a UGA schedule-building application. Integrated Java backend models with Spring Boot & Spring JPA.
-                            </p>
-                            <a href="https://github.com/akira23456/Optimal-Schedule-Builder" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 text-sm font-medium text-blue-300 bg-blue-800 rounded-full hover:bg-blue-700 transition-colors transform hover:scale-105">
-                                View Project
-                            </a>
-                        </div>
-                    </div>
+<!-- DevDogs Database -->
+<div class="flex flex-col md:flex-row items-center md:items-start bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 space-y-6 md:space-y-0 md:space-x-8">
+<div class="w-full md:w-1/2 flex justify-center">
+<img src="https://placehold.co/600x400/161B22/58A6FF?text=DevDogs+DB" alt="DevDogs Database screenshot" class="w-full h-auto rounded-lg shadow-lg object-cover">
+</div>
+<div class="w-full md:w-1/2 text-center md:text-left space-y-4">
+<h3 class="text-3xl font-semibold text-white">DevDogs Database Developer</h3>
+<p class="text-gray-400 leading-relaxed">
+Designed backend database logic for a UGA schedule-building application. Integrated Java backend models with Spring Boot & Spring JPA.
+</p>
+<a href="https://github.com/akira23456/Optimal-Schedule-Builder" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 text-sm font-medium text-blue-300 bg-blue-800 rounded-full hover:bg-blue-700 transition-colors transform hover:scale-105">
+View Project
+</a>
+</div>
+</div>
 
-                    <!-- Churn Analysis Project -->
-                    <div class="flex flex-col md:flex-row items-center md:items-start bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 space-y-6 md:space-y-0 md:space-x-8">
-                        <div class="w-full md:w-1/2 flex justify-center">
-                            <img src="https://placehold.co/600x400/161B22/58A6FF?text=Churn+Analysis" alt="Churn Analysis Dashboard screenshot" class="w-full h-auto rounded-lg shadow-lg object-cover">
-                        </div>
-                        <div class="w-full md:w-1/2 text-center md:text-left space-y-4">
-                            <h3 class="text-3xl font-semibold text-white">Churn Analysis Project</h3>
-                            <p class="text-gray-400 leading-relaxed">
-                                Built a customer churn dashboard using MySQL, Python (Pandas), and Tableau. Identified key churn drivers: month-to-month contracts (42.7% churn), first 1-2 months of tenure (45.6%), and Fiber optic internet (41.9% churn). Designed relational database schema, performed data cleaning, and created visualizations highlighting churn patterns.
-                            </p>
-                            <a href="https://github.com/akira23456/Churn-Project" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 text-sm font-medium text-blue-300 bg-blue-800 rounded-full hover:bg-blue-700 transition-colors transform hover:scale-105">
-                                View Project
-                            </a>
-                        </div>
-                    </div>
+<!-- Churn Analysis -->
+<div class="flex flex-col md:flex-row items-center md:items-start bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 space-y-6 md:space-y-0 md:space-x-8">
+<div class="w-full md:w-1/2 flex justify-center">
+<img src="https://placehold.co/600x400/161B22/58A6FF?text=Churn+Analysis" alt="Churn Analysis Dashboard screenshot" class="w-full h-auto rounded-lg shadow-lg object-cover">
+</div>
+<div class="w-full md:w-1/2 text-center md:text-left space-y-4">
+<h3 class="text-3xl font-semibold text-white">Churn Analysis Project</h3>
+<p class="text-gray-400 leading-relaxed">
+Built a customer churn dashboard using MySQL, Python (Pandas), and Tableau. Identified key churn drivers: month-to-month contracts (42.7% churn), first 1-2 months of tenure (45.6%), and Fiber optic internet (41.9% churn). Designed relational database schema, performed data cleaning, and created visualizations highlighting churn patterns.
+</p>
+<a href="https://github.com/akira23456/Churn-Project" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 text-sm font-medium text-blue-300 bg-blue-800 rounded-full hover:bg-blue-700 transition-colors transform hover:scale-105">
+View Project
+</a>
+</div>
+</div>
 
-                    <!-- Financial KPI Analytics Dashboard -->
-                    <div class="flex flex-col md:flex-row items-center md:items-start bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 space-y-6 md:space-y-0 md:space-x-8">
-                        <div class="w-full md:w-1/2 flex justify-center">
-                            <img src="https://placehold.co/600x400/161B22/58A6FF?text=Financial+KPI+Dashboard" alt="Financial KPI Analytics Dashboard screenshot" class="w-full h-auto rounded-lg shadow-lg object-cover">
-                        </div>
-                        <div class="w-full md:w-1/2 text-center md:text-left space-y-4">
-                            <h3 class="text-3xl font-semibold text-white">Financial KPI Analytics Dashboard</h3>
-                            <p class="text-gray-400 leading-relaxed">
-                                Developed an interactive financial analytics dashboard tracking KPIs across 260+ companies, including ROE, Debt-to-Equity, and Current Ratio. Built and maintained a Python-based data pipeline (Pandas, NumPy) with SQL and Excel for cleaning, merging, validating, and transforming raw financial statement CSVs for accurate analysis. Engineered a PyTorch pipeline to forecast ROE and Debt-to-Equity, achieving low MAE and enabling predictive insights. Created an interactive web dashboard using HTML, Recharts, and Tailwind CSS to visualize financial trends and machine learning predictions.
-                            </p>
-                            <a href="https://github.com/akira23456/Financial_KPI" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 text-sm font-medium text-blue-300 bg-blue-800 rounded-full hover:bg-blue-700 transition-colors transform hover:scale-105">
-                                View Project
-                            </a>
-                        </div>
-                    </div>
+<!-- Financial KPI -->
+<div class="flex flex-col md:flex-row items-center md:items-start bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 space-y-6 md:space-y-0 md:space-x-8">
+<div class="w-full md:w-1/2 flex justify-center">
+<img src="https://placehold.co/600x400/161B22/58A6FF?text=Financial+KPI+Dashboard" alt="Financial KPI Analytics Dashboard screenshot" class="w-full h-auto rounded-lg shadow-lg object-cover">
+</div>
+<div class="w-full md:w-1/2 text-center md:text-left space-y-4">
+<h3 class="text-3xl font-semibold text-white">Financial KPI Analytics Dashboard</h3>
+<p class="text-gray-400 leading-relaxed">
+Developed an interactive financial analytics dashboard tracking KPIs across 260+ companies, including ROE, Debt-to-Equity, and Current Ratio. Built and maintained a Python-based data pipeline (Pandas, NumPy) with SQL and Excel for cleaning, merging, validating, and transforming raw financial statement CSVs. Engineered a PyTorch pipeline to forecast ROE and Debt-to-Equity, achieving low MAE. Created an interactive web dashboard using HTML, Recharts, and Tailwind CSS to visualize financial trends and predictions.
+</p>
+<a href="https://github.com/akira23456/Financial_KPI" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 text-sm font-medium text-blue-300 bg-blue-800 rounded-full hover:bg-blue-700 transition-colors transform hover:scale-105">
+View Project
+</a>
+</div>
+</div>
 
-                </div>
-            </div>
-        </section>
+<!-- CS1302 API App (previous project) -->
+<div class="flex flex-col md:flex-row items-center md:items-start bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 space-y-6 md:space-y-0 md:space-x-8">
+<div class="w-full md:w-1/2 flex justify-center">
+<img src="https://placehold.co/600x400/161B22/58A6FF?text=CS1302+API+App" alt="CS1302 API App screenshot" class="w-full h-auto rounded-lg shadow-lg object-cover">
+</div>
+<div class="w-full md:w-1/2 text-center md:text-left space-y-4">
+<h3 class="text-3xl font-semibold text-white">CS1302 API Application</h3>
+<p class="text-gray-400 leading-relaxed">
+Built a Java application integrating multiple APIs for weather, stock, and finance data. Designed a user-friendly interface and implemented robust error handling for real-time data queries.
+</p>
+<a href="https://github.com/akira23456/CS1302-API-App" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 text-sm font-medium text-blue-300 bg-blue-800 rounded-full hover:bg-blue-700 transition-colors transform hover:scale-105">
+View Project
+</a>
+</div>
+</div>
 
-        <!-- Contact -->
-        <section id="contact" class="py-20 px-6 md:px-12">
-            <div class="container mx-auto text-center">
-                <h2 class="text-4xl font-bold text-white mb-4">Get In Touch</h2>
-                <p class="text-gray-400 mb-8 max-w-xl mx-auto">
-                    Feel free to connect with me on social media or reach out via email.
-                </p>
-                <div class="flex justify-center space-x-6">
-                    <a href="https://www.linkedin.com/in/aiden-mori-lair-a61708239" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-500 transition-colors transform hover:scale-110">
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.761 0-.971.784-1.76 1.75-1.76s1.75.789 1.75 1.76c0 .971-.784 1.761-1.75 1.761zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                        </svg>
-                    </a>
-                    <a href="https://github.com/akira23456" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-500 transition-colors transform hover:scale-110">
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.6.11.82-.26.82-.584 0-.287-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.332-1.758-1.332-1.758-1.09-.744.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.836 2.809 1.305 3.492.997.108-.775.421-1.305.769-1.605-2.665-.304-5.467-1.334
+<!-- Weather App -->
+<div class="flex flex-col md:flex-row items-center md:items-start bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 space-y-6 md:space-y-0 md:space-x-8">
+<div class="w-full md:w-1/2 flex justify-center">
+<img src="https://placehold.co/600x400/161B22/58A6FF?text=Weather+App" alt="Weather App screenshot" class="w-full h-auto rounded-lg shadow-lg object-cover">
+</div>
+<div class="w-full md:w-1/2 text-center md:text-left space-y-4">
+<h3 class="text-3xl font-semibold text-white">Weather Application</h3>
+<p class="text-gray-400 leading-relaxed">
+Developed a web app fetching real-time weather data from an API, displaying current conditions and forecasts dynamically. Implemented responsive design using React and Tailwind CSS.
+</p>
+<a href="https://github.com/akira23456/Weather-App" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 text-sm font-medium text-blue-300 bg-blue-800 rounded-full hover:bg-blue-700 transition-colors transform hover:scale-105">
+View Project
+</a>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="py-20 px-6 md:px-12">
+<div class="container mx-auto text-center space-y-6">
+<h2 class="text-4xl font-bold text-white mb-4">Get In Touch</h2>
+<p class="text-gray-400 mb-8 max-w-xl mx-auto">
+Feel free to connect with me on social media, check my GitHub, or download my resume.
+</p>
+<div class="flex justify-center space-x-6">
+<!-- LinkedIn -->
+<a href="https://www.linkedin.com/in/aiden-mori-lair-a61708239" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-500 transition-colors transform hover:scale-110">
+<svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.761 0-.971.784-1.76 1.75-1.76s1.75.789 1.75 1.76c0 .971-.784 1.761-1.75 1.761zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+</a>
+<!-- GitHub -->
+<a href="https://github.com/akira23456" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-500 transition-colors transform hover:scale-110">
+<svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 0c-6.626 0-12 5.373-12 12 ..."/></svg>
+</a>
+<!-- Resume -->
+<a href="https://akira23456.github.io/resume.pdf" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-500 transition-colors transform hover:scale-110">
+<svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zM14 3.5V9h5.5L14 3.5z"/></svg>
+</a>
+</div>
+</div>
+</section>
+
+</div>
+
+<script>
+// Typing animation
+const text = "Aiden Mori-Lair";
+let index = 0;
+const typingText = document.getElementById("typing-text");
+
+function type() {
+if (index < text.length) {
+typingText.innerHTML += text.charAt(index);
+index++;
+setTimeout(type, 150);
+}
+}
+type();
+</script>
+</body>
+</html>
