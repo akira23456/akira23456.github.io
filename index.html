@@ -11,19 +11,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Apply the Inter font to the entire body */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0d1117; /* Dark background similar to GitHub's */
-            color: #c9d1d9; /* Light text for dark background */
-            overflow-x: hidden; /* Prevents horizontal scrolling */
+            background-color: #0d1117;
+            color: #c9d1d9;
+            overflow-x: hidden;
         }
-        /* Style for active navigation links */
         .nav-link.active {
             color: #58a6ff;
             border-bottom: 2px solid #58a6ff;
         }
-        /* Custom scrollbar for better aesthetics */
         body::-webkit-scrollbar {
             width: 8px;
         }
@@ -35,9 +32,8 @@
             border-radius: 4px;
         }
 
-        /* --- Bubbly Background Styles --- */
         .bubbly-background {
-            position: fixed; /* Changed to fixed so it always covers the viewport */
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
@@ -55,40 +51,21 @@
             animation: bubble-movement linear infinite;
         }
         
-        /* Keyframe animation for bubble movement (slower bubbles) */
-        .bubble.slow {
-            animation-duration: 10s;
-        }
-        /* Keyframe animation for bubble movement (faster bubbles) */
-        .bubble.fast {
-            animation-duration: 5s;
-        }
+        .bubble.slow { animation-duration: 10s; }
+        .bubble.fast { animation-duration: 5s; }
 
-        /* Animation to move bubbles from bottom to top of the viewport */
         @keyframes bubble-movement {
-            0% { 
-                transform: translateY(0); 
-                opacity: 0; 
-            }
-            10% {
-                opacity: 0.6;
-            }
-            90% {
-                opacity: 0.6;
-            }
-            100% { 
-                transform: translateY(-100vh); 
-                opacity: 0; 
-            }
+            0% { transform: translateY(0); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(-100vh); opacity: 0; }
         }
 
-        /* Typing effect cursor */
         .typing-cursor {
             font-weight: 300;
             animation: blink-caret .75s step-end infinite;
         }
 
-        /* The typing cursor animation */
         @keyframes blink-caret {
             from, to { border-color: transparent }
             50% { border-color: #c9d1d9; }
@@ -97,32 +74,23 @@
 </head>
 <body class="antialiased">
 
-    <!-- Bubbly Background Container -->
     <div id="bubbly-bg" class="bubbly-background"></div>
 
-    <!-- Main content container to allow the bubbly background to show -->
     <div class="relative z-10">
-        <!-- Header / Navigation Bar -->
         <header class="sticky top-0 z-50 bg-gray-900 bg-opacity-80 backdrop-blur-sm p-4 shadow-lg border-b border-gray-700">
             <nav class="container mx-auto flex justify-between items-center">
-                <!-- Logo or Name -->
                 <a href="#hero" class="text-xl font-bold text-white hover:text-blue-400 transition-colors">Aiden Mori-Lair</a>
-                <!-- Desktop Navigation Links -->
                 <div class="hidden md:flex space-x-6 text-sm font-medium">
                     <a href="#about" class="nav-link transition-colors hover:text-white">About</a>
                     <a href="#projects" class="nav-link transition-colors hover:text-white">Projects</a>
                     <a href="#contact" class="nav-link transition-colors hover:text-white">Contact</a>
                 </div>
-                <!-- Mobile Menu Toggle (optional) -->
-                <!-- For simplicity, this template is desktop-first. A mobile menu can be added later. -->
             </nav>
         </header>
 
-        <!-- Hero Section -->
         <section id="hero" class="container mx-auto py-24 px-6 md:px-12 text-center min-h-screen flex flex-col justify-center items-center">
             <div class="space-y-4">
                 <p class="text-lg font-medium text-blue-400">Hello, I'm</p>
-                <!-- Typing Effect Container -->
                 <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight tracking-tight">
                     <span id="typing-text"></span><span class="typing-cursor">|</span>
                 </h1>
@@ -135,14 +103,11 @@
             </div>
         </section>
 
-        <!-- About Section -->
         <section id="about" class="py-20 px-6 md:px-12">
             <div class="container mx-auto flex flex-col md:flex-row items-center justify-center space-y-12 md:space-y-0 md:space-x-12">
-                <!-- Profile Image -->
                 <div class="flex-shrink-0">
                     <img src="https://akira23456.github.io/1727299565244.jpg" alt="Aiden Mori-Lair's profile photo" class="w-64 h-64 rounded-full border-4 border-blue-500 object-cover shadow-xl">
                 </div>
-                <!-- Bio Text -->
                 <div class="max-w-xl text-center md:text-left space-y-4">
                     <h2 class="text-4xl font-bold text-white mb-4">About Me</h2>
                     <p class="text-gray-400 leading-relaxed">
@@ -152,70 +117,27 @@
             </div>
         </section>
 
-        <!-- Projects Section -->
         <section id="projects" class="py-20 px-6 md:px-12">
             <div class="container mx-auto">
                 <h2 class="text-4xl font-bold text-white text-center mb-12">My Projects</h2>
                 <div class="space-y-12">
-                    <!-- Project Section 1: Churn-Project -->
-                    <div class="flex flex-col md:flex-row items-center md:items-start bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 space-y-6 md:space-y-0 md:space-x-8">
-                        <div class="w-full md:w-1/2 flex justify-center">
-                            <img src="https://placehold.co/600x400/161B22/58A6FF?text=Data+Dashboard" alt="A dashboard image representing the Churn Project" class="w-full h-auto rounded-lg shadow-lg object-cover">
-                        </div>
-                        <div class="w-full md:w-1/2 text-center md:text-left space-y-4">
-                            <h3 class="text-3xl font-semibold text-white">Customer Churn Analysis</h3>
-                            <p class="text-gray-400 leading-relaxed">
-                                A full-cycle data analysis project demonstrating skills in data cleaning with Python/Pandas, SQL querying, and creating a professional dashboard in Tableau. The goal is to provide data-driven recommendations to help a business improve its customer retention. This project showcases my ability to manage a dataset from beginning to end, creating actionable insights.
-                            </p>
-                            <a href="https://github.com/akira23456/Churn-Project" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 text-sm font-medium text-blue-300 bg-blue-800 rounded-full hover:bg-blue-700 transition-colors transform hover:scale-105">
-                                View Project
-                            </a>
-                        </div>
-                    </div>
 
-                    <!-- Project Section 2: Optimal-Schedule-Builder -->
-                    <div class="flex flex-col md:flex-row items-center md:items-start bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 space-y-6 md:space-y-0 md:space-x-8">
-                        <div class="w-full md:w-1/2 flex justify-center">
-                            <img src="https://placehold.co/600x400/161B22/58A6FF?text=Schedule+Builder+App" alt="A wireframe of a schedule builder application" class="w-full h-auto rounded-lg shadow-lg object-cover">
-                        </div>
-                        <div class="w-full md:w-1/2 text-center md:text-left space-y-4">
-                            <h3 class="text-3xl font-semibold text-white">Optimal Schedule Builder</h3>
-                            <p class="text-gray-400 leading-relaxed">
-                                A website designed for University of Georgia (UGA) students to create optimal class schedules. This project was developed as part of the inaugural project for the DevDogs student group, demonstrating my skills in web development and creating user-centric applications.
-                            </p>
-                            <a href="https://github.com/akira23456/Optimal-Schedule-Builder" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 text-sm font-medium text-blue-300 bg-blue-800 rounded-full hover:bg-blue-700 transition-colors transform hover:scale-105">
-                                View Project
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Project Section 3: UGAHacks-Project -->
-                    <div class="flex flex-col md:flex-row items-center md:items-start bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 space-y-6 md:space-y-0 md:space-x-8">
-                        <div class="w-full md:w-1/2 flex justify-center">
-                            <img src="https://placehold.co/600x400/161B22/58A6FF?text=UGAHacks+Project+Code" alt="A coding screen with text representing the UGAHacks project" class="w-full h-auto rounded-lg shadow-lg object-cover">
-                        </div>
-                        <div class="w-full md:w-1/2 text-center md:text-left space-y-4">
-                            <h3 class="text-3xl font-semibold text-white">UGAHacks Project</h3>
-                            <p class="text-gray-400 leading-relaxed">
-                                This project was built during a hackathon. It showcases my ability to quickly prototype and develop a functional application under time constraints, utilizing various technologies to bring an idea to life.
-                            </p>
-                            <a href="https://github.com/akira23456/UGAHacks-Project" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 text-sm font-medium text-blue-300 bg-blue-800 rounded-full hover:bg-blue-700 transition-colors transform hover:scale-105">
-                                View Project
-                            </a>
-                        </div>
-                    </div>
+                    <!-- Other projects here... -->
 
-                    <!-- Project Section 4: cs1302-api-app -->
+                    <!-- Financial KPI Analytics Dashboard -->
                     <div class="flex flex-col md:flex-row items-center md:items-start bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 space-y-6 md:space-y-0 md:space-x-8">
                         <div class="w-full md:w-1/2 flex justify-center">
-                            <img src="https://placehold.co/600x400/161B22/58A6FF?text=API+Application" alt="A visual representation of an API call" class="w-full h-auto rounded-lg shadow-lg object-cover">
+                            <img src="https://placehold.co/600x400/161B22/58A6FF?text=Financial+KPI+Dashboard" alt="Financial KPI Analytics Dashboard screenshot" class="w-full h-auto rounded-lg shadow-lg object-cover">
                         </div>
                         <div class="w-full md:w-1/2 text-center md:text-left space-y-4">
-                            <h3 class="text-3xl font-semibold text-white">CS 1302 API Application</h3>
+                            <h3 class="text-3xl font-semibold text-white">Financial KPI Analytics Dashboard</h3>
                             <p class="text-gray-400 leading-relaxed">
-                                An application developed for my CS 1302 class. This project involved connecting to and consuming data from a public API, demonstrating core programming concepts and the ability to work with external data sources.
+                                Developed an interactive financial analytics dashboard tracking KPIs across 260+ companies, including ROE, Debt-to-Equity, and Current Ratio.
+                                Built and maintained a Python-based data pipeline (Pandas, NumPy) with SQL and Excel for cleaning, merging, validating, and transforming raw financial statement CSVs for accurate analysis.
+                                Engineered a PyTorch pipeline to forecast ROE and Debt-to-Equity, achieving low MAE and enabling predictive insights.
+                                Created an interactive web dashboard using HTML, Recharts, and Tailwind CSS to visualize financial trends and machine learning predictions.
                             </p>
-                            <a href="https://github.com/akira23456/cs1302-api-app" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 text-sm font-medium text-blue-300 bg-blue-800 rounded-full hover:bg-blue-700 transition-colors transform hover:scale-105">
+                            <a href="https://github.com/akira23456/Financial_KPI" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 text-sm font-medium text-blue-300 bg-blue-800 rounded-full hover:bg-blue-700 transition-colors transform hover:scale-105">
                                 View Project
                             </a>
                         </div>
@@ -225,7 +147,6 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
         <section id="contact" class="py-20 px-6 md:px-12">
             <div class="container mx-auto text-center">
                 <h2 class="text-4xl font-bold text-white mb-4">Get In Touch</h2>
@@ -233,113 +154,19 @@
                     Feel free to connect with me on social media or reach out via email.
                 </p>
                 <div class="flex justify-center space-x-6">
-                    <!-- LinkedIn Icon -->
                     <a href="https://www.linkedin.com/in/aiden-mori-lair-a61708239" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-500 transition-colors transform hover:scale-110">
                         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.761 0-.971.784-1.76 1.75-1.76s1.75.789 1.75 1.76c0 .971-.784 1.761-1.75 1.761zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                         </svg>
                     </a>
-                    <!-- GitHub Icon -->
                     <a href="https://github.com/akira23456" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-500 transition-colors transform hover:scale-110">
                         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.6.11.82-.26.82-.584 0-.287-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.332-1.758-1.332-1.758-1.09-.744.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.836 2.809 1.305 3.492.997.108-.775.421-1.305.769-1.605-2.665-.304-5.467-1.334-5.467-5.931 0-1.31.468-2.381 1.236-3.22-.124-.303-.535-1.521.117-3.176 0 0 1.006-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.294-1.552 3.298-1.23 3.298-1.23.652 1.655.241 2.873.118 3.176.77.839 1.233 1.91 1.233 3.22 0 4.609-2.807 5.624-5.479 5.922.43.371.823 1.102.823 2.222 0 1.605-.015 2.899-.015 3.286 0 .325.216.697.825.578 4.771-1.581 8.203-6.082 8.203-11.386 0-6.627-5.373-12-12-12z" clip-rule="evenodd"/>
-                        </svg>
-                    </a>
-                    <!-- Resume Icon -->
-                    <a href="https://akira23456.github.io/ResumeCurrent.pdf" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-500 transition-colors transform hover:scale-110">
-                        <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            <path fill-rule="evenodd" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.6.11.82-.26.82-.584 0-.287-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.332-1.758-1.332-1.758-1.09-.744.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.836 2.809 1.305 3.492.997.108-.775.421-1.305.769-1.605-2.665-.304-5.467-1.334-5.467-5.931 0-1.31.468-2.381 1.236-3.22-.124-.303-.535-1.521.117-3.176 0 0 1.006-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.294-1.552 3.298-1.23 3.298-1.23.652 1.655.241 2.873.118 3.176.77.839 1.233 1.91 1.233 3.22 0 4.609-2.807 5.624-5...
                         </svg>
                     </a>
                 </div>
             </div>
         </section>
-
-        <!-- Footer -->
-        <footer class="bg-gray-900 p-6 text-center text-sm text-gray-400">
-            <p>&copy; <span id="current-year"></span> Aiden Mori-Lair. All Rights Reserved.</p>
-        </footer>
     </div>
-
-    <!-- JavaScript to update the current year dynamically and create effects -->
-    <script>
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const bubblyBg = document.getElementById('bubbly-bg');
-
-            // Function to generate the bubbles
-            function generateBubbles() {
-                // Remove existing bubbles
-                bubblyBg.innerHTML = '';
-                
-                // Number of bubbles to generate for a consistent effect
-                const numBubbles = 50; 
-                
-                for (let i = 0; i < numBubbles; i++) {
-                    const bubble = document.createElement('div');
-                    bubble.classList.add('bubble');
-                    
-                    // Randomly assign a speed class for a layered effect
-                    if (Math.random() > 0.5) {
-                        bubble.classList.add('fast');
-                    } else {
-                        bubble.classList.add('slow');
-                    }
-
-                    // Set random size, position, and animation delay
-                    const size = Math.random() * 80 + 40;
-                    bubble.style.width = `${size}px`;
-                    bubble.style.height = `${size}px`;
-                    bubble.style.left = `${Math.random() * 100}vw`;
-                    bubble.style.bottom = `-${size}px`; // Start bubbles from below the viewport
-                    bubble.style.animationDelay = `${Math.random() * 10}s`; // Stagger the start times
-                    
-                    bubblyBg.appendChild(bubble);
-                }
-            }
-
-            // Initial generation on page load
-            generateBubbles();
-
-            // Re-generate bubbles on window resize to ensure full coverage
-            window.addEventListener('resize', generateBubbles);
-
-            // --- Typing Effect Script ---
-            const typingTextElement = document.getElementById('typing-text');
-            const textToType = "Aiden Mori-Lair";
-            let charIndex = 0;
-            let isDeleting = false;
-            let typingSpeed = 100;
-
-            function typeWriter() {
-                if (isDeleting) {
-                    // Deleting text
-                    typingTextElement.textContent = textToType.substring(0, charIndex - 1);
-                    charIndex--;
-                    typingSpeed = 50; // Faster deletion
-                } else {
-                    // Typing text
-                    typingTextElement.textContent = textToType.substring(0, charIndex + 1);
-                    charIndex++;
-                    typingSpeed = 100; // Normal typing speed
-                }
-
-                if (!isDeleting && charIndex === textToType.length) {
-                    // Finished typing, start deleting after a delay
-                    typingSpeed = 2000; // Pause at the end
-                    isDeleting = true;
-                } else if (isDeleting && charIndex === 0) {
-                    // Finished deleting, start typing again
-                    isDeleting = false;
-                    typingSpeed = 500; // Pause before re-typing
-                }
-
-                setTimeout(typeWriter, typingSpeed);
-            }
-
-            typeWriter(); // Start the typing effect
-        });
-    </script>
 </body>
 </html>
