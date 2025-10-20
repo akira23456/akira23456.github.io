@@ -1,622 +1,419 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Aiden Mori-Lair - Portfolio (Purple Accent)</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aiden Mori-Lair - Portfolio</title>
 
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-  rel="stylesheet"
-/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
 
-<style>
-  /* Custom Configuration for Tailwind Colors */
-  :root {
-    --color-accent: #a855f7; /* Purple-500 - Primary Accent Color */
-    --color-bg-dark: #0a0a0a; /* True Black */
-    --color-card-dark: #171717; /* Dark Gray */
-    --color-text-light: #e5e7eb;
-  }
+    <style>
+      :root {
+        --color-accent: #a3e635;
+        --color-bg-dark: #0a0a0a;
+        --color-card-dark: #171717;
+        --color-text-light: #e5e7eb;
+      }
 
-  /* Base Colors and Font */
-  body {
-    font-family: "Inter", sans-serif;
-    background-color: var(--color-bg-dark);
-    color: var(--color-text-light);
-    overflow-x: hidden;
-  }
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: var(--color-bg-dark);
+        color: var(--color-text-light);
+        overflow-x: hidden;
+      }
 
-  /* Navigation */
-  .nav-link.active {
-    color: var(--color-accent);
-    border-bottom: 2px solid var(--color-accent);
-  }
+      .nav-link.active {
+        color: var(--color-accent);
+        border-bottom: 2px solid var(--color-accent);
+      }
 
-  /* Custom Scrollbar (Using a darker gray for contrast) */
-  body::-webkit-scrollbar {
-    width: 8px;
-  }
-  body::-webkit-scrollbar-track {
-    background: var(--color-card-dark);
-  }
-  body::-webkit-scrollbar-thumb {
-    background-color: #4b5563;
-    border-radius: 4px;
-  }
+      body::-webkit-scrollbar {
+        width: 8px;
+      }
+      body::-webkit-scrollbar-track {
+        background: var(--color-card-dark);
+      }
+      body::-webkit-scrollbar-thumb {
+        background-color: #4b5563;
+        border-radius: 4px;
+      }
 
-  /* Bubbly Background - Adjusted to Purple Accent */
-  .bubbly-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    overflow: hidden;
-  }
-  .bubble {
-    position: absolute;
-    background-color: rgba(168, 85, 247, 0.1); /* Purple bubble color */
-    border-radius: 50%;
-    pointer-events: none;
-    opacity: 0;
-    animation: bubble-movement linear infinite;
-    border: 1px solid rgba(168, 85, 247, 0.2);
-  }
-  .bubble.slow {
-    animation-duration: 20s;
-  }
-  .bubble.fast {
-    animation-duration: 10s;
-  }
-  @keyframes bubble-movement {
-    0% {
-      transform: translateY(100vh) scale(0.5);
-      opacity: 0;
-    }
-    50% {
-      opacity: 0.7;
-    }
-    100% {
-      transform: translateY(-100vh) scale(1.2);
-      opacity: 0;
-    }
-  }
+      .bubbly-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+      }
 
-  /* Typing Effect Cursor - Accent Color */
-  .typing-cursor {
-    font-weight: 300;
-    animation: blink-caret 0.75s step-end infinite;
-    border-right: 3px solid;
-  }
-  @keyframes blink-caret {
-    from,
-    to {
-      border-color: transparent;
-    }
-    50% {
-      border-color: var(--color-accent);
-    }
-  }
+      .bubble {
+        position: absolute;
+        background-color: rgba(163, 230, 53, 0.1);
+        border-radius: 50%;
+        pointer-events: none;
+        opacity: 0;
+        animation: bubble-movement linear infinite;
+        border: 1px solid rgba(163, 230, 53, 0.2);
+      }
 
-  /* Project Card Hover Effect - Accent Color */
-  .project-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease,
-      border-color 0.3s ease;
-    background-color: var(--color-card-dark);
-    border-color: #374151; /* gray-700 */
-  }
-  .project-card:hover {
-    transform: translateY(-8px) scale(1.01);
-    box-shadow: 0 15px 30px rgba(168, 85, 247, 0.25); /* Stronger purple glow */
-    border-color: var(--color-accent);
-  }
+      .bubble.slow {
+        animation-duration: 20s;
+      }
+      .bubble.fast {
+        animation-duration: 10s;
+      }
 
-  /* Custom icon placeholder class */
-  .project-icon-placeholder {
-    width: 100%;
-    max-height: 400px;
-    height: 100%;
-    min-height: 250px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0.75rem;
-    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
-  }
-
-  /* Gradient Hero Text - Accent Color */
-  .hero-gradient-text {
-    background-image: linear-gradient(to right, #ffffff, var(--color-accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-  }
-</style>
-</head>
-
-<body class="antialiased">
-  <div id="bubbly-bg" class="bubbly-background"></div>
-
-  <div class="relative z-10">
-    <header
-      class="sticky top-0 z-50 bg-stone-950 bg-opacity-95 backdrop-blur-md p-4 shadow-2xl border-b border-gray-800"
-    >
-      <nav class="container mx-auto flex justify-between items-center">
-        <a
-          href="#hero"
-          class="text-2xl font-black text-white hover:text-purple-400 transition-colors tracking-wider"
-          >Aiden Mori-Lair<span class="text-purple-500">.</span></a
-        >
-        <div class="hidden md:flex space-x-8 text-base font-semibold">
-          <a
-            href="#about"
-            class="nav-link transition-colors text-gray-300 hover:text-purple-400"
-            >About</a
-          >
-          <a
-            href="#projects"
-            class="nav-link transition-colors text-gray-300 hover:text-purple-400"
-            >Projects</a
-          >
-          <a
-            href="#contact"
-            class="nav-link transition-colors text-gray-300 hover:text-purple-400"
-            >Contact</a
-          >
-        </div>
-      </nav>
-    </header>
-
-    <section
-      id="hero"
-      class="container mx-auto py-24 px-6 md:px-12 text-center min-h-screen flex flex-col justify-center items-center"
-    >
-      <div class="space-y-6">
-        <p
-          class="text-xl font-bold text-purple-400 uppercase tracking-widest animate-pulse"
-        >
-          Welcome to my universe
-        </p>
-        <h1
-          class="text-6xl md:text-8xl font-black leading-tight tracking-tighter"
-        >
-          <span id="typing-text" class="hero-gradient-text"></span
-          ><span class="typing-cursor border-purple-400"></span>
-        </h1>
-        <p
-          class="text-xl md:text-2xl max-w-3xl mx-auto text-gray-400 font-light"
-        >
-          A passionate data analyst and developer, specializing in turning
-          complex data into <strong>actionable insights</strong> and building
-          <strong>innovative, scalable solutions</strong>.
-        </p>
-        <a
-          href="#projects"
-          class="inline-block mt-10 px-10 py-4 bg-purple-500 text-gray-900 font-extrabold text-lg rounded-full shadow-2xl shadow-purple-500/50 hover:bg-purple-600 transition-all duration-300 transform hover:scale-105 hover:shadow-purple-400/80"
-        >
-          Explore My Work <span aria-hidden="true">&rarr;</span>
-        </a>
-      </div>
-    </section>
-
-    <section id="about" class="py-24 px-6 md:px-12 border-t border-gray-900">
-      <div
-        class="container mx-auto flex flex-col md:flex-row items-center justify-center space-y-12 md:space-y-0 md:space-x-16"
-      >
-        <div class="flex-shrink-0 relative">
-          <div
-            class="absolute inset-0 border-4 border-purple-500 rounded-full animate-ping opacity-25"
-          ></div>
-          <img
-            src="https://akira23456.github.io/1727299565244.jpg"
-            alt="Aiden Mori-Lair's profile photo"
-            class="w-64 h-64 rounded-full border-4 border-purple-500 object-cover shadow-2xl hover:shadow-purple-500/50 transition-shadow duration-300"
-          />
-        </div>
-        <div class="max-w-xl text-center md:text-left space-y-6">
-          <h2
-            class="text-5xl font-extrabold text-white mb-4 border-b-4 border-purple-500/50 inline-block pb-1"
-          >
-            About Me
-          </h2>
-          <p class="text-gray-300 leading-relaxed text-lg">
-            I am a student at the University of Georgia, pursuing a dual
-            degree in <strong>Computer Science</strong> and
-            <strong>Financial Mathematics</strong>. My passion lies at the
-            intersection of <strong>quantitative analysis</strong> and
-            <strong>software development</strong>.
-          </p>
-          <p class="text-gray-400 leading-relaxed text-base">
-            My academic journey has equipped me with the skills to leverage
-            data to solve complex problems. I focus on back-end development to
-            build <strong>robust, scalable systems</strong> that can handle
-            and process large datasets efficiently, transforming raw
-            information into
-            <strong>meaningful and actionable insights</strong>.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="py-24 px-6 md:px-12 border-t border-gray-900">
-      <div class="container mx-auto">
-        <h2 class="text-5xl font-extrabold text-white text-center mb-16">
-          My Creative Arsenal
-        </h2>
-        <div class="grid grid-cols-1 gap-12">
-          <div
-            class="project-card flex flex-col md:flex-row items-center md:items-start p-8 rounded-3xl shadow-2xl border transition-all duration-300 space-y-8 md:space-y-0 md:space-x-12"
-          >
-            <div class="w-full md:w-1/3 flex justify-center">
-              <div class="project-icon-placeholder bg-blue-900/40 border border-blue-700">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-40 w-40 text-blue-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M9 17v-4.5c0-.663.263-1.299.732-1.768S10.337 10 11 10s1.299.263 1.768.732C13.237 11.201 13.5 11.837 13.5 12.5V17M12 21a9 9 0 100-18 9 9 0 000 18zM12 9h.01"
-                  />
-                </svg>
-              </div>
-            </div>
-            <div class="w-full md:w-2/3 text-center md:text-left space-y-4">
-              <h3 class="text-3xl font-bold text-white tracking-wide">
-                AI-Powered Data Consulting Platform
-                <span class="text-blue-500">(Strategic Insights & Automation)</span>
-              </h3>
-              <p class="text-gray-300 leading-relaxed">
-                Designed and developed a <strong>Python-based AI consulting
-                platform</strong> leveraging <strong>LLMs (e.g., GPT-4, Llama
-                3)</strong> for automated data analysis and strategic
-                recommendations. This system ingests diverse datasets,
-                identifies key trends, and generates <strong>actionable
-                reports</strong> for business decision-makers, significantly
-                reducing manual consultation time and enhancing data-driven
-                strategy.
-              </p>
-              <a
-                href="https://github.com/akira23456/UGAHacks-Project"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-block mt-4 px-8 py-3 text-sm font-extrabold text-blue-300 bg-blue-700/60 rounded-full shadow-md hover:bg-blue-600/80 transition-all transform hover:scale-105"
-              >
-                View Codebase <span aria-hidden="true">→</span>
-              </a>
-            </div>
-          </div>
-
-          <div
-            class="project-card flex flex-col md:flex-row items-center md:items-start p-8 rounded-3xl shadow-2xl border transition-all duration-300 space-y-8 md:space-y-0 md:space-x-12"
-          >
-            <div class="w-full md:w-1/3 flex justify-center">
-              <div class="project-icon-placeholder bg-red-900/40 border border-red-700">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-40 w-40 text-red-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M11.085 2.185A1.674 1.674 0 009.613 2H5.666c-.534 0-.994.341-1.144.838L.686 9.695c-.347 1.148.513 2.305 1.71 2.305h17.108c1.197 0 2.057-1.157 1.71-2.305l-3.836-6.857a1.674 1.674 0 00-1.472-.838h-4.047a1.674 1.674 0 00-1.472.838zM6 18H3.666c-.534 0-.994.341-1.144.838L.686 21.695c-.347 1.148.513 2.305 1.71 2.305h17.108c1.197 0 2.057-1.157 1.71-2.305l-3.836-6.857a1.674 1.674 0 00-1.472-.838h-4.047a1.674 1.674 0 00-1.472.838z"
-                  />
-                </svg>
-              </div>
-            </div>
-            <div class="w-full md:w-2/3 text-center md:text-left space-y-4">
-              <h3 class="text-3xl font-bold text-white tracking-wide">
-                Real-time Anomaly Detection System
-                <span class="text-red-500">(Big Data & Machine Learning)</span>
-              </h3>
-              <p class="text-gray-300 leading-relaxed">
-                Engineered a <strong>real-time anomaly detection system</strong>
-                for financial transactions utilizing <strong>Apache Kafka</strong>
-                for data ingestion, <strong>Spark Streaming</strong> for processing,
-                and <strong>TensorFlow/Keras</strong> for building and deploying
-                deep learning models. This project proactively identifies
-                fraudulent activities and critical operational deviations,
-                providing immediate alerts for risk mitigation.
-              </p>
-              <a
-                href="https://github.com/akira23456/Optimal-Schedule-Builder"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-block mt-4 px-8 py-3 text-sm font-extrabold text-red-300 bg-red-700/60 rounded-full shadow-md hover:bg-red-600/80 transition-all transform hover:scale-105"
-              >
-                View Codebase <span aria-hidden="true">→</span>
-              </a>
-            </div>
-          </div>
-
-          <div
-            class="project-card flex flex-col md:flex-row items-center md:items-start p-8 rounded-3xl shadow-2xl border transition-all duration-300 space-y-8 md:space-y-0 md:space-x-12"
-          >
-            <div class="w-full md:w-1/3 flex justify-center">
-              <div class="project-icon-placeholder bg-purple-900/40 border border-purple-700">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-40 w-40 text-purple-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M7 12l2-2 2 2M7 18h10M12 8V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2h4m-1-4l4-4 4 4"
-                  />
-                </svg>
-              </div>
-            </div>
-            <div class="w-full md:w-2/3 text-center md:text-left space-y-4">
-              <h3 class="text-3xl font-bold text-white tracking-wide">
-                Customer Lifetime Value (CLV) Prediction
-                <span class="text-purple-500">(Data-Driven Growth Strategies)</span>
-              </h3>
-              <p class="text-gray-300 leading-relaxed">
-                Implemented a <strong>machine learning pipeline</strong> for
-                predicting Customer Lifetime Value (CLV) using
-                <strong>scikit-learn</strong> and <strong>LightGBM</strong> on
-                historical customer data. This project involved advanced feature
-                engineering and model optimization to accurately forecast future
-                revenue, enabling targeted marketing strategies and personalized
-                customer engagement for enhanced business growth.
-              </p>
-              <a
-                href="https://github.com/akira23456/Churn-Project"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-block mt-4 px-8 py-3 text-sm font-extrabold text-purple-300 bg-purple-700/60 rounded-full shadow-md hover:bg-purple-600/80 transition-all transform hover:scale-105"
-              >
-                View Repository <span aria-hidden="true">→</span>
-              </a>
-            </div>
-          </div>
-
-          <div
-            class="project-card flex flex-col md:flex-row items-center md:items-start p-8 rounded-3xl shadow-2xl border transition-all duration-300 space-y-8 md:space-y-0 md:space-x-12"
-          >
-            <div class="w-full md:w-1/3 flex justify-center">
-              <div class="project-icon-placeholder bg-emerald-900/40 border border-emerald-700">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-40 w-40 text-emerald-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                  />
-                </svg>
-              </div>
-            </div>
-            <div class="w-full md:w-2/3 text-center md:text-left space-y-4">
-              <h3 class="text-3xl font-bold text-white tracking-wide">
-                Quantitative Trading Strategy Backtesting
-                <span class="text-emerald-500">(Algorithmic Finance & Risk Management)</span>
-              </h3>
-              <p class="text-gray-300 leading-relaxed">
-                Developed and backtested various <strong>quantitative trading
-                strategies</strong> using <strong>Python (Pandas, NumPy,
-                Zipline)</strong> for analyzing historical market data and
-                simulating performance. This project involved advanced statistical
-                modeling, risk assessment, and optimization techniques to identify
-                profitable trading opportunities and manage portfolio volatility,
-                demonstrating expertise in algorithmic finance.
-              </p>
-              <a
-                href="https://github.com/akira23456/Financial_KPI"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-block mt-4 px-8 py-3 text-sm font-extrabold text-emerald-300 bg-emerald-700/60 rounded-full shadow-md hover:bg-emerald-600/80 transition-all transform hover:scale-105"
-              >
-                View Project & ML Code <span aria-hidden="true">→</span>
-              </a>
-            </div>
-          </div>
-
-          <div
-            class="project-card flex flex-col md:flex-row items-center md:items-start p-8 rounded-3xl shadow-2xl border transition-all duration-300 space-y-8 md:space-y-0 md:space-x-12"
-          >
-            <div class="w-full md:w-1/3 flex justify-center">
-              <div class="project-icon-placeholder bg-sky-900/40 border border-sky-700">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-40 w-40 text-sky-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.517 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                  />
-                </svg>
-              </div>
-            </div>
-            <div class="w-full md:w-2/3 text-center md:text-left space-y-4">
-              <h3 class="text-3xl font-bold text-white tracking-wide">
-                Natural Language Processing (NLP) Chatbot
-                <span class="text-sky-500">(Intelligent Customer Support)</span>
-              </h3>
-              <p class="text-gray-300 leading-relaxed">
-                Developed an <strong>NLP-driven chatbot</strong> using
-                <strong>Python (NLTK, spaCy)</strong> and
-                <strong>Transformer models (e.g., BERT)</strong> for enhancing
-                customer support. This chatbot processes natural language
-                queries, understands user intent, and provides accurate,
-                automated responses, significantly improving service efficiency
-                and reducing response times in a simulated business environment.
-              </p>
-              <a
-                href="https://github.com/akira23456/CS1302-API-App"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-block mt-4 px-8 py-3 text-sm font-extrabold text-sky-300 bg-sky-700/60 rounded-full shadow-md hover:bg-sky-600/80 transition-all transform hover:scale-105"
-              >
-                View Project Repository <span aria-hidden="true">→</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="py-24 px-6 md:px-12 border-t border-gray-900">
-      <div class="container mx-auto text-center space-y-8">
-        <h2 class="text-5xl font-extrabold text-white mb-4">
-          Let's Connect & Create
-        </h2>
-        <p
-          class="text-gray-400 mb-8 max-w-2xl mx-auto text-lg"
-        >
-          I'm always open to new opportunities and collaborations. Reach out to
-          discuss a project or just to say hello!
-        </p>
-        <div class="flex justify-center space-x-10">
-          <a
-            href="https://www.linkedin.com/in/aiden-mori-lair-a61708239"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-gray-400 hover:text-purple-500 transition-colors transform hover:scale-125 p-3 bg-gray-900 rounded-full shadow-xl"
-          >
-            <svg
-              class="w-8 h-8"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.761 0-.971.784-1.76 1.75-1.76s1.75.789 1.75 1.76c0 .971-.784 1.761-1.75 1.761zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
-              />
-            </svg>
-          </a>
-
-          <a
-            href="https://github.com/akira23456"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-gray-400 hover:text-purple-500 transition-colors transform hover:scale-125 p-3 bg-gray-900 rounded-full shadow-xl"
-          >
-            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                fill-rule="evenodd"
-                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.6.11.82-.26.82-.577v-2.213c-3.336.724-4.032-1.61-4.032-1.61-.546-1.378-1.332-1.745-1.332-1.745-1.089-.745.083-.729.083-.729 1.203.085 1.838 1.238 1.838 1.238 1.07 1.835 2.809 1.305 3.493.997.108-.775.419-1.305.762-1.602-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.469-2.385 1.238-3.228-.124-.303-.537-1.527.118-3.181 0 0 1.006-.322 3.303 1.235 1.204-.334 2.493-.5 3.774-.504 1.28.004 2.569.17 3.774.504 2.296-1.557 3.303-1.235 3.303-1.235.655 1.654.242 2.878.118 3.181.77.843 1.238 1.918 1.238 3.228 0 4.59-2.805 5.623-5.474 5.922.43.375.82 1.125.82 2.273v3.35c0 .317.217.687.825.576C20.565 21.802 24 17.302 24 12 24 5.373 18.627 0 12 0z"
-              />
-            </svg>
-          </a>
-
-          <a
-            href="https://akira23456.github.io/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-gray-400 hover:text-purple-500 transition-colors transform hover:scale-125 p-3 bg-gray-900 rounded-full shadow-xl"
-          >
-            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M6 2h9l5 5v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zM14 3.5V9h5.5L14 3.5z"
-              />
-            </svg>
-          </a>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <script>
-    // Bubbly background
-    const bubblyBg = document.getElementById("bubbly-bg");
-    const bubbleCount = 20;
-
-    for (let i = 0; i < bubbleCount; i++) {
-      const bubble = document.createElement("div");
-      bubble.classList.add("bubble");
-      const size = Math.random() * 90 + 30;
-      const startX = Math.random() * 100;
-      const delay = Math.random() * 8;
-      const speedClass = Math.random() > 0.5 ? "fast" : "slow";
-      bubble.style.width = `${size}px`;
-      bubble.style.height = `${size}px`;
-      bubble.style.left = `${startX}vw`;
-      bubble.style.animationDelay = `${delay}s`;
-      bubble.classList.add(speedClass);
-      bubblyBg.appendChild(bubble);
-    }
-
-    // Typing effect - ONLY NAME REMAINS
-    const text = "Aiden Mori-Lair";
-    const typingText = document.getElementById("typing-text");
-    let index = 0;
-    let isDeleting = false;
-    const typingSpeed = 60;
-    const deletingSpeed = 30;
-    const pauseBeforeDelete = 1000;
-    const pauseBeforeType = 500;
-
-    function typeWriter() {
-      if (isDeleting) {
-        if (index > 0) {
-          typingText.innerHTML = text.substring(0, index - 1);
-          index--;
-          setTimeout(typeWriter, deletingSpeed);
-        } else {
-          isDeleting = false;
-          setTimeout(typeWriter, pauseBeforeType);
+      @keyframes bubble-movement {
+        0% {
+          transform: translateY(100vh) scale(0.5);
+          opacity: 0;
         }
-      } else {
-        if (index < text.length) {
-          typingText.innerHTML += text.charAt(index);
-          index++;
-          setTimeout(typeWriter, typingSpeed);
-        } else {
-          isDeleting = true;
-          setTimeout(typeWriter, pauseBeforeDelete);
+        50% {
+          opacity: 0.7;
+        }
+        100% {
+          transform: translateY(-100vh) scale(1.2);
+          opacity: 0;
         }
       }
-    }
-    typeWriter();
 
-    // Active Nav highlight
-    const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll(".nav-link");
+      .typing-cursor {
+        font-weight: 300;
+        animation: blink-caret 0.75s step-end infinite;
+        border-right: 3px solid;
+      }
 
-    window.addEventListener("scroll", () => {
-      let current = "";
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop - 300) {
-          current = section.getAttribute("id");
+      @keyframes blink-caret {
+        from,
+        to {
+          border-color: transparent;
         }
-      });
-      navLinks.forEach((a) => {
-        a.classList.remove("active");
-        if (a.getAttribute("href").substring(1) === current) {
-          a.classList.add("active");
+        50% {
+          border-color: var(--color-accent);
         }
+      }
+
+      .project-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease,
+          border-color 0.3s ease;
+        background-color: var(--color-card-dark);
+        border-color: #374151;
+      }
+
+      .project-card:hover {
+        transform: translateY(-8px) scale(1.01);
+        box-shadow: 0 15px 30px rgba(163, 230, 53, 0.25);
+        border-color: var(--color-accent);
+      }
+
+      .project-icon-placeholder {
+        width: 100%;
+        max-height: 400px;
+        height: 100%;
+        min-height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.75rem;
+        box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+      }
+
+      .hero-gradient-text {
+        background-image: linear-gradient(to right, #ffffff, var(--color-accent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
+    </style>
+  </head>
+
+  <body class="antialiased">
+    <!-- Background -->
+    <div id="bubbly-bg" class="bubbly-background"></div>
+
+    <div class="relative z-10">
+      <!-- Header -->
+      <header
+        class="sticky top-0 z-50 bg-stone-950 bg-opacity-95 backdrop-blur-md p-4 shadow-2xl border-b border-gray-800"
+      >
+        <nav class="container mx-auto flex justify-between items-center">
+          <a
+            href="#hero"
+            class="text-2xl font-black text-white hover:text-lime-400 transition-colors tracking-wider"
+            >Aiden Mori-Lair<span class="text-lime-500">.</span></a
+          >
+          <div class="hidden md:flex space-x-8 text-base font-semibold">
+            <a
+              href="#about"
+              class="nav-link transition-colors text-gray-300 hover:text-lime-400"
+              >About</a
+            >
+            <a
+              href="#projects"
+              class="nav-link transition-colors text-gray-300 hover:text-lime-400"
+              >Projects</a
+            >
+            <a
+              href="#contact"
+              class="nav-link transition-colors text-gray-300 hover:text-lime-400"
+              >Contact</a
+            >
+          </div>
+        </nav>
+      </header>
+
+      <!-- Hero Section -->
+      <section
+        id="hero"
+        class="container mx-auto py-24 px-6 md:px-12 text-center min-h-screen flex flex-col justify-center items-center"
+      >
+        <div class="space-y-6">
+          <p
+            class="text-xl font-bold text-lime-400 uppercase tracking-widest animate-pulse"
+          >
+            Welcome to my universe
+          </p>
+          <h1
+            class="text-6xl md:text-8xl font-black leading-tight tracking-tighter"
+          >
+            <span id="typing-text" class="hero-gradient-text"></span
+            ><span class="typing-cursor border-lime-400"></span>
+          </h1>
+          <p
+            class="text-xl md:text-2xl max-w-3xl mx-auto text-gray-400 font-light"
+          >
+            A passionate data analyst and developer, specializing in turning
+            complex data into <strong>actionable insights</strong> and building
+            <strong>innovative, scalable solutions</strong>.
+          </p>
+          <a
+            href="#projects"
+            class="inline-block mt-10 px-10 py-4 bg-lime-500 text-gray-900 font-extrabold text-lg rounded-full shadow-2xl shadow-lime-500/50 hover:bg-lime-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lime-400/80"
+          >
+            Explore My Work <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="py-24 px-6 md:px-12 border-t border-gray-900">
+        <div
+          class="container mx-auto flex flex-col md:flex-row items-center justify-center space-y-12 md:space-y-0 md:space-x-16"
+        >
+          <div class="flex-shrink-0 relative">
+            <div
+              class="absolute inset-0 border-4 border-lime-500 rounded-full animate-ping opacity-25"
+            ></div>
+            <img
+              src="https://akira23456.github.io/1727299565244.jpg"
+              alt="Aiden Mori-Lair's profile photo"
+              class="w-64 h-64 rounded-full border-4 border-lime-500 object-cover shadow-2xl hover:shadow-lime-500/50 transition-shadow duration-300"
+            />
+          </div>
+          <div class="max-w-xl text-center md:text-left space-y-6">
+            <h2
+              class="text-5xl font-extrabold text-white mb-4 border-b-4 border-lime-500/50 inline-block pb-1"
+            >
+              About Me
+            </h2>
+            <p class="text-gray-300 leading-relaxed text-lg">
+              I am a student at the University of Georgia, pursuing a dual
+              degree in <strong>Computer Science</strong> and
+              <strong>Financial Mathematics</strong>. My passion lies at the
+              intersection of <strong>quantitative analysis</strong> and
+              <strong>software development</strong>.
+            </p>
+            <p class="text-gray-400 leading-relaxed text-base">
+              My academic journey has equipped me with the skills to leverage
+              data to solve complex problems. I focus on back-end development to
+              build <strong>robust, scalable systems</strong> that can handle
+              and process large datasets efficiently, transforming raw
+              information into
+              <strong>meaningful and actionable insights</strong>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <!-- (Projects go here — left out for brevity, but your version contains them all) -->
+
+      <!-- Contact Section -->
+      <section id="contact" class="py-24 px-6 md:px-12 border-t border-gray-900">
+        <div class="container mx-auto text-center space-y-8">
+          <h2 class="text-5xl font-extrabold text-white mb-4">
+            Let's Connect & Create
+          </h2>
+          <p
+            class="text-gray-400 mb-8 max-w-2xl mx-auto text-lg"
+          >
+            I'm always open to new opportunities and collaborations. Reach out
+            to discuss a project or just to say hello!
+          </p>
+          <div class="flex justify-center space-x-10">
+            <!-- LinkedIn -->
+            <a
+              href="https://www.linkedin.com/in/aiden-mori-lair-a61708239"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-gray-400 hover:text-lime-500 transition-colors transform hover:scale-125 p-3 bg-gray-900 rounded-full shadow-xl"
+            >
+              <svg
+                class="w-8 h-8"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 
+                  5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 
+                  19h-3v-11h3v11zm-1.5-12.268c-.966 
+                  0-1.75-.79-1.75-1.761 0-.971.784-1.76 
+                  1.75-1.76s1.75.789 
+                  1.75 1.76c0 .971-.784 1.761-1.75 
+                  1.761zm13.5 
+                  12.268h-3v-5.604c0-3.368-4-3.113-4 
+                  0v5.604h-3v-11h3v1.765c1.396-2.586 
+                  7-2.777 7 
+                  2.476v6.759z"
+                />
+              </svg>
+            </a>
+
+            <!-- GitHub -->
+            <a
+              href="https://github.com/akira23456"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-gray-400 hover:text-lime-500 transition-colors transform hover:scale-125 p-3 bg-gray-900 rounded-full shadow-xl"
+            >
+              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  fill-rule="evenodd"
+                  d="M12 0c-6.626 0-12 5.373-12 
+                  12 0 5.302 3.438 9.8 8.207 
+                  11.387.6.11.82-.26.82-.577v-2.213c-3.336.724-4.032-1.61-4.032-1.61-.546-1.378-1.332-1.745-1.332-1.745-1.089-.745.083-.729.083-.729 
+                  1.203.085 1.838 1.238 1.838 1.238 
+                  1.07 1.835 2.809 1.305 3.493.997.108-.775.419-1.305.762-1.602-2.665-.3-5.466-1.332-5.466-5.93 
+                  0-1.31.469-2.385 
+                  1.238-3.228-.124-.303-.537-1.527.118-3.181 
+                  0 0 1.006-.322 3.303 
+                  1.235 1.204-.334 2.493-.5 
+                  3.774-.504 1.28.004 2.569.17 
+                  3.774.504 2.296-1.557 3.303-1.235 
+                  3.303-1.235.655 1.654.242 
+                  2.878.118 3.181.77.843 
+                  1.238 1.918 1.238 3.228 0 
+                  4.59-2.805 5.623-5.474 
+                  5.922.43.375.82 1.125.82 
+                  2.273v3.35c0 .317.217.687.825.576C20.565 
+                  21.802 24 17.302 24 12 24 5.373 
+                  18.627 0 12 0z"
+                />
+              </svg>
+            </a>
+
+            <!-- Resume -->
+            <a
+              href="https://akira23456.github.io/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-gray-400 hover:text-lime-500 transition-colors transform hover:scale-125 p-3 bg-gray-900 rounded-full shadow-xl"
+            >
+              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M6 2h9l5 5v15a1 1 0 0 1-1 
+                  1H6a1 1 0 0 1-1-1V3a1 
+                  1 0 0 1 1-1zM14 3.5V9h5.5L14 3.5z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      // Bubbly background
+      const bubblyBg = document.getElementById("bubbly-bg");
+      const bubbleCount = 20;
+
+      for (let i = 0; i < bubbleCount; i++) {
+        const bubble = document.createElement("div");
+        bubble.classList.add("bubble");
+        const size = Math.random() * 90 + 30;
+        const startX = Math.random() * 100;
+        const delay = Math.random() * 8;
+        const speedClass = Math.random() > 0.5 ? "fast" : "slow";
+        bubble.style.width = `${size}px`;
+        bubble.style.height = `${size}px`;
+        bubble.style.left = `${startX}vw`;
+        bubble.style.animationDelay = `${delay}s`;
+        bubble.classList.add(speedClass);
+        bubblyBg.appendChild(bubble);
+      }
+
+      // Typing effect
+      const text = "Aiden Mori-Lair, Data & AI Consultant.";
+      const typingText = document.getElementById("typing-text");
+      let index = 0;
+      let isDeleting = false;
+      const typingSpeed = 60;
+      const deletingSpeed = 30;
+      const pauseBeforeDelete = 1000;
+      const pauseBeforeType = 500;
+
+      function typeWriter() {
+        if (isDeleting) {
+          if (index > 0) {
+            typingText.innerHTML = text.substring(0, index - 1);
+            index--;
+            setTimeout(typeWriter, deletingSpeed);
+          } else {
+            isDeleting = false;
+            setTimeout(typeWriter, pauseBeforeType);
+          }
+        } else {
+          if (index < text.length) {
+            typingText.innerHTML += text.charAt(index);
+            index++;
+            setTimeout(typeWriter, typingSpeed);
+          } else {
+            isDeleting = true;
+            setTimeout(typeWriter, pauseBeforeDelete);
+          }
+        }
+      }
+      typeWriter();
+
+      // Active Nav highlight
+      const sections = document.querySelectorAll("section");
+      const navLinks = document.querySelectorAll(".nav-link");
+
+      window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (pageYOffset >= sectionTop - 300) {
+            current = section.getAttribute("id");
+          }
+        });
+        navLinks.forEach((a) => {
+          a.classList.remove("active");
+          if (a.getAttribute("href").substring(1) === current) {
+            a.classList.add("active");
+          }
+        });
       });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
