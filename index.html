@@ -4,72 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aiden Mori-Lair - Portfolio</title>
-    <!-- Load Tailwind CSS from CDN -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Load Inter font from Google Fonts -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0d1117;
-            color: #c9d1d9;
-            overflow-x: hidden;
-        }
-        .nav-link.active {
-            color: #58a6ff;
-            border-bottom: 2px solid #58a6ff;
-        }
-        body::-webkit-scrollbar {
-            width: 8px;
-        }
-        body::-webkit-scrollbar-track {
-            background: #161b22;
-        }
-        body::-webkit-scrollbar-thumb {
-            background-color: #30363d;
-            border-radius: 4px;
-        }
+        body { font-family: 'Inter', sans-serif; background-color: #0d1117; color: #c9d1d9; overflow-x: hidden; }
+        .nav-link.active { color: #58a6ff; border-bottom: 2px solid #58a6ff; }
+        body::-webkit-scrollbar { width: 8px; }
+        body::-webkit-scrollbar-track { background: #161b22; }
+        body::-webkit-scrollbar-thumb { background-color: #30363d; border-radius: 4px; }
 
-        .bubbly-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .bubble {
-            position: absolute;
-            background-color: rgba(88, 166, 255, 0.1);
-            border-radius: 50%;
-            pointer-events: none;
-            opacity: 0;
-            animation: bubble-movement linear infinite;
-        }
-        
+        .bubbly-background { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; }
+        .bubble { position: absolute; background-color: rgba(88, 166, 255, 0.1); border-radius: 50%; pointer-events: none; opacity: 0; animation: bubble-movement linear infinite; }
         .bubble.slow { animation-duration: 10s; }
         .bubble.fast { animation-duration: 5s; }
+        @keyframes bubble-movement { 0% { transform: translateY(0); opacity: 0; } 10% { opacity: 0.6; } 90% { opacity: 0.6; } 100% { transform: translateY(-100vh); opacity: 0; } }
 
-        @keyframes bubble-movement {
-            0% { transform: translateY(0); opacity: 0; }
-            10% { opacity: 0.6; }
-            90% { opacity: 0.6; }
-            100% { transform: translateY(-100vh); opacity: 0; }
-        }
-
-        .typing-cursor {
-            font-weight: 300;
-            animation: blink-caret .75s step-end infinite;
-        }
-
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: #c9d1d9; }
-        }
+        .typing-cursor { font-weight: 300; animation: blink-caret .75s step-end infinite; }
+        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: #c9d1d9; } }
     </style>
 </head>
 <body class="antialiased">
@@ -77,6 +32,7 @@
     <div id="bubbly-bg" class="bubbly-background"></div>
 
     <div class="relative z-10">
+        <!-- Header -->
         <header class="sticky top-0 z-50 bg-gray-900 bg-opacity-80 backdrop-blur-sm p-4 shadow-lg border-b border-gray-700">
             <nav class="container mx-auto flex justify-between items-center">
                 <a href="#hero" class="text-xl font-bold text-white hover:text-blue-400 transition-colors">Aiden Mori-Lair</a>
@@ -88,6 +44,7 @@
             </nav>
         </header>
 
+        <!-- Hero -->
         <section id="hero" class="container mx-auto py-24 px-6 md:px-12 text-center min-h-screen flex flex-col justify-center items-center">
             <div class="space-y-4">
                 <p class="text-lg font-medium text-blue-400">Hello, I'm</p>
@@ -103,6 +60,7 @@
             </div>
         </section>
 
+        <!-- About -->
         <section id="about" class="py-20 px-6 md:px-12">
             <div class="container mx-auto flex flex-col md:flex-row items-center justify-center space-y-12 md:space-y-0 md:space-x-12">
                 <div class="flex-shrink-0">
@@ -117,12 +75,59 @@
             </div>
         </section>
 
+        <!-- Projects -->
         <section id="projects" class="py-20 px-6 md:px-12">
             <div class="container mx-auto">
                 <h2 class="text-4xl font-bold text-white text-center mb-12">My Projects</h2>
                 <div class="space-y-12">
 
-                    <!-- Other projects here... -->
+                    <!-- UGAHacks App Developer -->
+                    <div class="flex flex-col md:flex-row items-center md:items-start bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 space-y-6 md:space-y-0 md:space-x-8">
+                        <div class="w-full md:w-1/2 flex justify-center">
+                            <img src="https://placehold.co/600x400/161B22/58A6FF?text=UGAHacks+App" alt="UGAHacks App screenshot" class="w-full h-auto rounded-lg shadow-lg object-cover">
+                        </div>
+                        <div class="w-full md:w-1/2 text-center md:text-left space-y-4">
+                            <h3 class="text-3xl font-semibold text-white">UGAHacks App Developer</h3>
+                            <p class="text-gray-400 leading-relaxed">
+                                Developed a TikTok-style video feed web app enabling communication between creators and fans. Implemented frontend using React and backend using Django, connecting to a relational database for efficient data storage.
+                            </p>
+                            <a href="https://github.com/akira23456/UGAHacks-Project" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 text-sm font-medium text-blue-300 bg-blue-800 rounded-full hover:bg-blue-700 transition-colors transform hover:scale-105">
+                                View Project
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- DevDogs Database Developer -->
+                    <div class="flex flex-col md:flex-row items-center md:items-start bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 space-y-6 md:space-y-0 md:space-x-8">
+                        <div class="w-full md:w-1/2 flex justify-center">
+                            <img src="https://placehold.co/600x400/161B22/58A6FF?text=DevDogs+DB" alt="DevDogs Database screenshot" class="w-full h-auto rounded-lg shadow-lg object-cover">
+                        </div>
+                        <div class="w-full md:w-1/2 text-center md:text-left space-y-4">
+                            <h3 class="text-3xl font-semibold text-white">DevDogs Database Developer</h3>
+                            <p class="text-gray-400 leading-relaxed">
+                                Designed backend database logic for a UGA schedule-building application. Integrated Java backend models with Spring Boot & Spring JPA.
+                            </p>
+                            <a href="https://github.com/akira23456/Optimal-Schedule-Builder" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 text-sm font-medium text-blue-300 bg-blue-800 rounded-full hover:bg-blue-700 transition-colors transform hover:scale-105">
+                                View Project
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Churn Analysis Project -->
+                    <div class="flex flex-col md:flex-row items-center md:items-start bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 space-y-6 md:space-y-0 md:space-x-8">
+                        <div class="w-full md:w-1/2 flex justify-center">
+                            <img src="https://placehold.co/600x400/161B22/58A6FF?text=Churn+Analysis" alt="Churn Analysis Dashboard screenshot" class="w-full h-auto rounded-lg shadow-lg object-cover">
+                        </div>
+                        <div class="w-full md:w-1/2 text-center md:text-left space-y-4">
+                            <h3 class="text-3xl font-semibold text-white">Churn Analysis Project</h3>
+                            <p class="text-gray-400 leading-relaxed">
+                                Built a customer churn dashboard using MySQL, Python (Pandas), and Tableau. Identified key churn drivers: month-to-month contracts (42.7% churn), first 1-2 months of tenure (45.6%), and Fiber optic internet (41.9% churn). Designed relational database schema, performed data cleaning, and created visualizations highlighting churn patterns.
+                            </p>
+                            <a href="https://github.com/akira23456/Churn-Project" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 text-sm font-medium text-blue-300 bg-blue-800 rounded-full hover:bg-blue-700 transition-colors transform hover:scale-105">
+                                View Project
+                            </a>
+                        </div>
+                    </div>
 
                     <!-- Financial KPI Analytics Dashboard -->
                     <div class="flex flex-col md:flex-row items-center md:items-start bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 space-y-6 md:space-y-0 md:space-x-8">
@@ -132,10 +137,7 @@
                         <div class="w-full md:w-1/2 text-center md:text-left space-y-4">
                             <h3 class="text-3xl font-semibold text-white">Financial KPI Analytics Dashboard</h3>
                             <p class="text-gray-400 leading-relaxed">
-                                Developed an interactive financial analytics dashboard tracking KPIs across 260+ companies, including ROE, Debt-to-Equity, and Current Ratio.
-                                Built and maintained a Python-based data pipeline (Pandas, NumPy) with SQL and Excel for cleaning, merging, validating, and transforming raw financial statement CSVs for accurate analysis.
-                                Engineered a PyTorch pipeline to forecast ROE and Debt-to-Equity, achieving low MAE and enabling predictive insights.
-                                Created an interactive web dashboard using HTML, Recharts, and Tailwind CSS to visualize financial trends and machine learning predictions.
+                                Developed an interactive financial analytics dashboard tracking KPIs across 260+ companies, including ROE, Debt-to-Equity, and Current Ratio. Built and maintained a Python-based data pipeline (Pandas, NumPy) with SQL and Excel for cleaning, merging, validating, and transforming raw financial statement CSVs for accurate analysis. Engineered a PyTorch pipeline to forecast ROE and Debt-to-Equity, achieving low MAE and enabling predictive insights. Created an interactive web dashboard using HTML, Recharts, and Tailwind CSS to visualize financial trends and machine learning predictions.
                             </p>
                             <a href="https://github.com/akira23456/Financial_KPI" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 text-sm font-medium text-blue-300 bg-blue-800 rounded-full hover:bg-blue-700 transition-colors transform hover:scale-105">
                                 View Project
@@ -147,6 +149,7 @@
             </div>
         </section>
 
+        <!-- Contact -->
         <section id="contact" class="py-20 px-6 md:px-12">
             <div class="container mx-auto text-center">
                 <h2 class="text-4xl font-bold text-white mb-4">Get In Touch</h2>
@@ -161,12 +164,4 @@
                     </a>
                     <a href="https://github.com/akira23456" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-500 transition-colors transform hover:scale-110">
                         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.6.11.82-.26.82-.584 0-.287-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.332-1.758-1.332-1.758-1.09-.744.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.836 2.809 1.305 3.492.997.108-.775.421-1.305.769-1.605-2.665-.304-5.467-1.334-5.467-5.931 0-1.31.468-2.381 1.236-3.22-.124-.303-.535-1.521.117-3.176 0 0 1.006-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.294-1.552 3.298-1.23 3.298-1.23.652 1.655.241 2.873.118 3.176.77.839 1.233 1.91 1.233 3.22 0 4.609-2.807 5.624-5...
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </section>
-    </div>
-</body>
-</html>
+                            <path fill-rule="evenodd" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.6.11.82-.26.82-.584 0-.287-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.332-1.758-1.332-1.758-1.09-.744.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.836 2.809 1.305 3.492.997.108-.775.421-1.305.769-1.605-2.665-.304-5.467-1.334
