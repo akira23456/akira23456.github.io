@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aiden Mori-Lair's Portfolio </title>
+<title>Aiden Mori-Lair - Portfolio (Purple Accent)</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -92,7 +92,7 @@ body::after {
     z-index: -2; 
     overflow: hidden;
     background-color: var(--color-bg-dark);
-    /* The main background image is now handled by the ::before element for animation */
+    /* No static background image here; only dynamic pseudo-elements */
 }
 
 /* Sparkle Layer 1: Main Purple Grid (Swirling & Sparkle) */
@@ -181,16 +181,6 @@ body::after {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-fill-color: transparent;
-}
-
-/* Class to ensure SVG is properly centered and sized */
-.icon-center {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0; /* Prevents the SVG from resizing oddly */
 }
 </style>
 </head>
@@ -355,12 +345,12 @@ I'm always open to new opportunities and collaborations. Reach out to discuss a 
     <path fill-rule="evenodd" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.6.11.82-.26.82-.577v-2.213c-3.336.724-4.032-1.61-4.032-1.61-.546-1.378-1.332-1.745-1.332-1.745-1.089-.745.083-.729.083-.729 1.203.085 1.838 1.238 1.838 1.238 1.07 1.835 2.809 1.305 3.493.997.108-.775.419-1.305.762-1.602-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.469-2.385 1.238-3.228-.124-.303-.537-1.527.118-3.181 0 0 1.006-.322 3.303 1.235 1.204-.334 2.493-.5 3.774-.504 1.28.004 2.569.17 3.774.504 2.296-1.557 3.303-1.235 3.303-1.235.655 1.654.242 2.878.118 3.181.77.843 1.238 1.918 1.238 3.228 0 4.59-2.805 5.623-5.474 5.922.43.375.82 1.125.82 2.273v3.35c0 .317.217.687.825.576C20.565 21.802 24 17.302 24 12 24 5.373 18.627 0 12 0z"/>
 </svg>
 </a>
-<a href="mailto:aidenklair@gmail.com" class="text-gray-400 hover:text-purple-500 transition-colors transform hover:scale-125 p-3 bg-gray-900 rounded-full shadow-xl w-14 h-14 icon-center">
-    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+<a href="mailto:aidenklair@gmail.com" class="text-gray-400 hover:text-purple-500 transition-colors transform hover:scale-125">
+    <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
         <path d="M22 4H2c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h20c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-10 7-10-7V6l10 7 10-7v2z"/>
     </svg>
 </a>
-<a href="tel:+18478631994" class="text-gray-400 hover:text-purple-500 transition-colors transform hover:scale-125 p-3 bg-gray-900 rounded-full shadow-xl w-14 h-14 flex items-center justify-center">
+<a href="tel:+18478631994" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-purple-500 transition-colors transform hover:scale-125 p-3 bg-gray-900 rounded-full shadow-xl w-14 h-14 flex items-center justify-center">
     <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
         <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57 1.1 0 2 .9 2 2V20c0 1.1-.9 2-2 2-9.39 0-17-7.61-17-17 0-1.1.9-2 2-2h3.5c1.1 0 2 .9 2 2 0 1.24.2 2.45.57 3.57.12.35.03.74-.23 1.02l-2.2 2.2z"/>
     </svg>
