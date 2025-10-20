@@ -8,68 +8,91 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/heroicons@latest/outline/index.js"></script>
 <style>
-/* New Base Colors and Font for Flashier Look */
+/* Custom Configuration for Tailwind Colors */
+:root {
+    --color-accent: #a3e635; /* lime-400 - Electric Green */
+    --color-bg-dark: #0a0a0a; /* True Black */
+    --color-card-dark: #171717; /* Dark Gray */
+    --color-text-light: #e5e7eb;
+}
+
+/* Base Colors and Font for Flashier Look */
 body { 
     font-family: 'Inter', sans-serif; 
-    background-color: #000000; /* True black for more contrast */
-    color: #e5e7eb; /* Lighter text for pop */
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-light);
     overflow-x: hidden; 
 }
-.nav-link.active { color: #84cc16; border-bottom: 2px solid #84cc16; } /* Vibrant green active color */
+.nav-link.active { color: var(--color-accent); border-bottom: 2px solid var(--color-accent); } 
 
-/* Custom Scrollbar for True Black Background */
+/* Custom Scrollbar */
 body::-webkit-scrollbar { width: 8px; }
-body::-webkit-scrollbar-track { background: #1f2937; }
+body::-webkit-scrollbar-track { background: var(--color-card-dark); }
 body::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
 
 /* Bubbly Background - Flashier Colors and Animation Speed */
 .bubbly-background { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; }
 .bubble { 
     position: absolute; 
-    background-color: rgba(132, 204, 22, 0.15); /* Green bubble color */
+    background-color: rgba(163, 230, 53, 0.1); /* Lime bubble color */
     border-radius: 50%; 
     pointer-events: none; 
     opacity: 0; 
     animation: bubble-movement linear infinite; 
-    border: 1px solid rgba(132, 204, 22, 0.3); /* Subtle border */
+    border: 1px solid rgba(163, 230, 53, 0.2); 
 }
-.bubble.slow { animation-duration: 15s; }
-.bubble.fast { animation-duration: 8s; }
+.bubble.slow { animation-duration: 20s; }
+.bubble.fast { animation-duration: 10s; }
 @keyframes bubble-movement { 
-    0% { transform: translateY(100vh) scale(0.5); opacity: 0; } /* Start lower and smaller */
+    0% { transform: translateY(100vh) scale(0.5); opacity: 0; } 
     50% { opacity: 0.7; } 
-    100% { transform: translateY(-100vh) scale(1.2); opacity: 0; } /* End higher and larger */
+    100% { transform: translateY(-100vh) scale(1.2); opacity: 0; } 
 }
 
 /* Typing Effect Cursor */
 .typing-cursor { 
     font-weight: 300; 
     animation: blink-caret .75s step-end infinite; 
-    border-right: 3px solid; /* Make the cursor thicker */
+    border-right: 3px solid; 
 }
 @keyframes blink-caret { 
     from, to { border-color: transparent } 
-    50% { border-color: #84cc16; } /* Green cursor */
+    50% { border-color: var(--color-accent); } 
 }
 
 /* Project Card Hover Effect */
+.project-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    background-color: var(--color-card-dark);
+    border-color: #374151; /* gray-700 */
+}
 .project-card:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 10px 15px rgba(132, 204, 22, 0.2); /* Green glow effect */
-    border-color: #84cc16;
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 15px 30px rgba(163, 230, 53, 0.25); /* Stronger lime glow */
+    border-color: var(--color-accent);
 }
 
 /* Custom icon placeholder class */
 .project-icon-placeholder {
     width: 100%;
-    height: 400px; /* Consistent height for all placeholders */
+    max-height: 400px;
+    height: 100%; 
+    min-height: 250px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 0.75rem;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+/* Gradient Hero Text */
+.hero-gradient-text {
+    background-image: linear-gradient(to right, #ffffff, var(--color-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
 }
 </style>
 </head>
@@ -78,40 +101,40 @@ body::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
 <div id="bubbly-bg" class="bubbly-background"></div>
 
 <div class="relative z-10">
-<header class="sticky top-0 z-50 bg-gray-900 bg-opacity-90 backdrop-blur-md p-4 shadow-2xl border-b border-gray-800">
+<header class="sticky top-0 z-50 bg-stone-950 bg-opacity-95 backdrop-blur-md p-4 shadow-2xl border-b border-gray-800">
 <nav class="container mx-auto flex justify-between items-center">
-<a href="#hero" class="text-2xl font-black text-white hover:text-green-400 transition-colors tracking-wider">Aiden Mori-Lair<span class="text-green-500">.</span></a>
+<a href="#hero" class="text-2xl font-black text-white hover:text-lime-400 transition-colors tracking-wider">Aiden Mori-Lair<span class="text-lime-500">.</span></a>
 <div class="hidden md:flex space-x-8 text-base font-semibold">
-<a href="#about" class="nav-link transition-colors text-gray-300 hover:text-green-400">About</a>
-<a href="#projects" class="nav-link transition-colors text-gray-300 hover:text-green-400">Projects</a>
-<a href="#contact" class="nav-link transition-colors text-gray-300 hover:text-green-400">Contact</a>
+<a href="#about" class="nav-link transition-colors text-gray-300 hover:text-lime-400">About</a>
+<a href="#projects" class="nav-link transition-colors text-gray-300 hover:text-lime-400">Projects</a>
+<a href="#contact" class="nav-link transition-colors text-gray-300 hover:text-lime-400">Contact</a>
 </div>
 </nav>
 </header>
 
 <section id="hero" class="container mx-auto py-24 px-6 md:px-12 text-center min-h-screen flex flex-col justify-center items-center">
 <div class="space-y-6">
-<p class="text-xl font-bold text-green-400 uppercase tracking-widest animate-pulse">Welcome to my universe</p>
-<h1 class="text-6xl md:text-8xl font-black text-white leading-tight tracking-tighter">
-<span id="typing-text"></span><span class="typing-cursor border-green-400"></span>
+<p class="text-xl font-bold text-lime-400 uppercase tracking-widest animate-pulse">Welcome to my universe</p>
+<h1 class="text-6xl md:text-8xl font-black leading-tight tracking-tighter">
+<span id="typing-text" class="hero-gradient-text"></span><span class="typing-cursor border-lime-400"></span>
 </h1>
 <p class="text-xl md:text-2xl max-w-3xl mx-auto text-gray-400 font-light">
 A passionate data analyst and developer, specializing in turning complex data into **actionable insights** and building **innovative, scalable solutions**.
 </p>
-<a href="#projects" class="inline-block mt-10 px-10 py-4 bg-green-600 text-white font-extrabold text-lg rounded-full shadow-2xl shadow-green-600/50 hover:bg-green-700 transition-all duration-300 transform hover:scale-105 hover:shadow-green-500/80">
+<a href="#projects" class="inline-block mt-10 px-10 py-4 bg-lime-500 text-gray-900 font-extrabold text-lg rounded-full shadow-2xl shadow-lime-500/50 hover:bg-lime-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lime-400/80">
 Explore My Work <span aria-hidden="true">&rarr;</span>
 </a>
 </div>
 </section>
 
-<section id="about" class="py-24 px-6 md:px-12 border-t border-gray-800">
+<section id="about" class="py-24 px-6 md:px-12 border-t border-gray-900">
 <div class="container mx-auto flex flex-col md:flex-row items-center justify-center space-y-12 md:space-y-0 md:space-x-16">
 <div class="flex-shrink-0 relative">
-<div class="absolute inset-0 border-4 border-green-500 rounded-full animate-ping opacity-25"></div>
-<img src="https://akira23456.github.io/1727299565244.jpg" alt="Aiden Mori-Lair's profile photo" class="w-64 h-64 rounded-full border-4 border-green-500 object-cover shadow-2xl hover:shadow-green-500/50 transition-shadow duration-300">
+<div class="absolute inset-0 border-4 border-lime-500 rounded-full animate-ping opacity-25"></div>
+<img src="https://akira23456.github.io/1727299565244.jpg" alt="Aiden Mori-Lair's profile photo" class="w-64 h-64 rounded-full border-4 border-lime-500 object-cover shadow-2xl hover:shadow-lime-500/50 transition-shadow duration-300">
 </div>
 <div class="max-w-xl text-center md:text-left space-y-6">
-<h2 class="text-5xl font-extrabold text-white mb-4 border-b-4 border-green-500/50 inline-block pb-1">About Me</h2>
+<h2 class="text-5xl font-extrabold text-white mb-4 border-b-4 border-lime-500/50 inline-block pb-1">About Me</h2>
 <p class="text-gray-300 leading-relaxed text-lg">
 I am a student at the University of Georgia, pursuing a dual degree in **Computer Science** and **Financial Mathematics**. My passion lies at the intersection of **quantitative analysis** and **software development**.
 </p>
@@ -122,12 +145,12 @@ My academic journey has equipped me with the skills to leverage data to solve co
 </div>
 </section>
 
-<section id="projects" class="py-24 px-6 md:px-12 border-t border-gray-800">
+<section id="projects" class="py-24 px-6 md:px-12 border-t border-gray-900">
 <div class="container mx-auto">
 <h2 class="text-5xl font-extrabold text-white text-center mb-16">My Creative Arsenal</h2>
 <div class="grid grid-cols-1 gap-12">
 
-<div class="project-card flex flex-col md:flex-row items-center md:items-start bg-gray-900 p-8 rounded-3xl shadow-2xl border border-gray-700 transition-all duration-300 space-y-8 md:space-y-0 md:space-x-12">
+<div class="project-card flex flex-col md:flex-row items-center md:items-start p-8 rounded-3xl shadow-2xl border transition-all duration-300 space-y-8 md:space-y-0 md:space-x-12">
 <div class="w-full md:w-1/3 flex justify-center">
     <div class="project-icon-placeholder bg-blue-900/40 border border-blue-700">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-40 w-40 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
@@ -146,7 +169,7 @@ View Codebase <span aria-hidden="true">→</span>
 </div>
 </div>
 
-<div class="project-card flex flex-col md:flex-row items-center md:items-start bg-gray-900 p-8 rounded-3xl shadow-2xl border border-gray-700 transition-all duration-300 space-y-8 md:space-y-0 md:space-x-12">
+<div class="project-card flex flex-col md:flex-row items-center md:items-start p-8 rounded-3xl shadow-2xl border transition-all duration-300 space-y-8 md:space-y-0 md:space-x-12">
 <div class="w-full md:w-1/3 flex justify-center">
     <div class="project-icon-placeholder bg-red-900/40 border border-red-700">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-40 w-40 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
@@ -165,7 +188,7 @@ View Codebase <span aria-hidden="true">→</span>
 </div>
 </div>
 
-<div class="project-card flex flex-col md:flex-row items-center md:items-start bg-gray-900 p-8 rounded-3xl shadow-2xl border border-gray-700 transition-all duration-300 space-y-8 md:space-y-0 md:space-x-12">
+<div class="project-card flex flex-col md:flex-row items-center md:items-start p-8 rounded-3xl shadow-2xl border transition-all duration-300 space-y-8 md:space-y-0 md:space-x-12">
 <div class="w-full md:w-1/3 flex justify-center">
     <div class="project-icon-placeholder bg-purple-900/40 border border-purple-700">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-40 w-40 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
@@ -184,40 +207,41 @@ View Repository <span aria-hidden="true">→</span>
 </div>
 </div>
 
-<div class="project-card flex flex-col md:flex-row items-center md:items-start bg-gray-900 p-8 rounded-3xl shadow-2xl border border-gray-700 transition-all duration-300 space-y-8 md:space-y-0 md:space-x-12">
+<div class="project-card flex flex-col md:flex-row items-center md:items-start p-8 rounded-3xl shadow-2xl border transition-all duration-300 space-y-8 md:space-y-0 md:space-x-12">
 <div class="w-full md:w-1/3 flex justify-center">
-    <div class="project-icon-placeholder bg-green-900/40 border border-green-700">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-40 w-40 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+    <div class="project-icon-placeholder bg-emerald-900/40 border border-emerald-700">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-40 w-40 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
         </svg>
     </div>
 </div>
 <div class="w-full md:w-2/3 text-center md:text-left space-y-4">
-<h3 class="text-3xl font-bold text-white tracking-wide">Financial KPI Analytics Dashboard <span class="text-green-500">(ML-Powered Forecasting)</span></h3>
+<h3 class="text-3xl font-bold text-white tracking-wide">Financial KPI Analytics Dashboard <span class="text-emerald-500">(ML-Powered Forecasting)</span></h3>
 <p class="text-gray-300 leading-relaxed">
 Developed an end-to-end financial analytics solution. I built a **Python data pipeline (Pandas, NumPy)** for cleaning and transforming 260+ companies' financial data. Engineered a **PyTorch pipeline** for forecasting KPIs like ROE, achieving low MAE, and created an interactive web dashboard using **HTML, Recharts, and Tailwind CSS** for visualization.
 </p>
-<a href="https://github.com/akira23456/Financial_KPI" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 px-8 py-3 text-sm font-extrabold text-green-300 bg-green-700/60 rounded-full shadow-md hover:bg-green-600/80 transition-all transform hover:scale-105">
+<a href="https://github.com/akira23456/Financial_KPI" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 px-8 py-3 text-sm font-extrabold text-emerald-300 bg-emerald-700/60 rounded-full shadow-md hover:bg-emerald-600/80 transition-all transform hover:scale-105">
 View Project & ML Code <span aria-hidden="true">→</span>
 </a>
 </div>
 </div>
 
-<div class="project-card flex flex-col md:flex-row items-center md:items-start bg-gray-900 p-8 rounded-3xl shadow-2xl border border-gray-700 transition-all duration-300 space-y-8 md:space-y-0 md:space-x-12">
+<div class="project-card flex flex-col md:flex-row items-center md:items-start p-8 rounded-3xl shadow-2xl border transition-all duration-300 space-y-8 md:space-y-0 md:space-x-12">
 <div class="w-full md:w-1/3 flex justify-center">
-    <div class="project-icon-placeholder bg-yellow-900/40 border border-yellow-700">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-40 w-40 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-10c.85-.724 1.93-1.42 2.76-1.748C21.464 7.64 22 8.71 22 10v1c0 1.657-1.343 3-3 3h-9.5" />
+    <!-- Updated Icon/Color to Sky Blue for Weather Theme -->
+    <div class="project-icon-placeholder bg-sky-900/40 border border-sky-700">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-40 w-40 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
         </svg>
     </div>
 </div>
 <div class="w-full md:w-2/3 text-center md:text-left space-y-4">
-<h3 class="text-3xl font-bold text-white tracking-wide">Weather App <span class="text-yellow-500">(Multi-API Integration)</span></h3>
+<h3 class="text-3xl font-bold text-white tracking-wide">Weather App <span class="text-sky-500">(API Data Integration)</span></h3>
 <p class="text-gray-300 leading-relaxed">
-Built a robust **Java application** focused on integrating multiple external **APIs** for real-time weather, stock, and finance data. Key components included designing an intuitive user-friendly interface and implementing comprehensive **error handling** to ensure stable data queries.
+Built a robust **Java application** focused on integrating multiple external **APIs** for real-time weather, stock, and finance data. This project demonstrates strong backend data handling, specifically using the **OpenWeatherMap API** to fetch forecast data and implementing comprehensive **error handling** for reliable data queries.
 </p>
-<a href="https://github.com/akira23456/CS1302-API-App" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 px-8 py-3 text-sm font-extrabold text-yellow-300 bg-yellow-700/60 rounded-full shadow-md hover:bg-yellow-600/80 transition-all transform hover:scale-105">
-View Java Project <span aria-hidden="true">→</span>
+<a href="https://github.com/akira23456/CS1302-API-App" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 px-8 py-3 text-sm font-extrabold text-sky-300 bg-sky-700/60 rounded-full shadow-md hover:bg-sky-600/80 transition-all transform hover:scale-105">
+View Project Repository <span aria-hidden="true">→</span>
 </a>
 </div>
 </div>
@@ -225,20 +249,20 @@ View Java Project <span aria-hidden="true">→</span>
 </div>
 </section>
 
-<section id="contact" class="py-24 px-6 md:px-12 border-t border-gray-800">
+<section id="contact" class="py-24 px-6 md:px-12 border-t border-gray-900">
 <div class="container mx-auto text-center space-y-8">
 <h2 class="text-5xl font-extrabold text-white mb-4">Let's Connect & Create</h2>
 <p class="text-gray-400 mb-8 max-w-2xl mx-auto text-lg">
 I'm always open to new opportunities and collaborations. Reach out to discuss a project or just to say hello!
 </p>
 <div class="flex justify-center space-x-10">
-<a href="https://www.linkedin.com/in/aiden-mori-lair-a61708239" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-green-500 transition-colors transform hover:scale-125 p-3 bg-gray-900 rounded-full shadow-xl">
+<a href="https://www.linkedin.com/in/aiden-mori-lair-a61708239" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-lime-500 transition-colors transform hover:scale-125 p-3 bg-gray-900 rounded-full shadow-xl">
 <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.761 0-.971.784-1.76 1.75-1.76s1.75.789 1.75 1.76c0 .971-.784 1.761-1.75 1.761zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
 </a>
-<a href="https://github.com/akira23456" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-green-500 transition-colors transform hover:scale-125 p-3 bg-gray-900 rounded-full shadow-xl">
+<a href="https://github.com/akira23456" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-lime-500 transition-colors transform hover:scale-125 p-3 bg-gray-900 rounded-full shadow-xl">
 <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.6.11.82-.26.82-.577v-2.213c-3.336.724-4.032-1.61-4.032-1.61-.546-1.378-1.332-1.745-1.332-1.745-1.089-.745.083-.729.083-.729 1.203.085 1.838 1.238 1.838 1.238 1.07 1.835 2.809 1.305 3.493.997.108-.775.419-1.305.762-1.602-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.469-2.385 1.238-3.228-.124-.303-.537-1.527.118-3.181 0 0 1.006-.322 3.303 1.235 1.204-.334 2.493-.5 3.774-.504 1.28.004 2.569.17 3.774.504 2.296-1.557 3.303-1.235 3.303-1.235.655 1.654.242 2.878.118 3.181.77.843 1.238 1.918 1.238 3.228 0 4.59-2.805 5.623-5.474 5.922.43.375.82 1.125.82 2.273v3.35c0 .317.217.687.825.576C20.565 21.802 24 17.302 24 12 24 5.373 18.627 0 12 0z"/></svg>
 </a>
-<a href="https://akira23456.github.io/resume.pdf" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-green-500 transition-colors transform hover:scale-125 p-3 bg-gray-900 rounded-full shadow-xl">
+<a href="https://akira23456.github.io/resume.pdf" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-lime-500 transition-colors transform hover:scale-125 p-3 bg-gray-900 rounded-full shadow-xl">
 <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zM14 3.5V9h5.5L14 3.5z"/></svg>
 </a>
 </div>
@@ -255,9 +279,9 @@ const bubbleCount = 20;
 for (let i = 0; i < bubbleCount; i++) {
     const bubble = document.createElement('div');
     bubble.classList.add('bubble');
-    const size = Math.random() * 80 + 20; // Size between 20px and 100px
+    const size = Math.random() * 90 + 30; // Size between 30px and 120px
     const startX = Math.random() * 100; // Start position X
-    const delay = Math.random() * 5; // Start delay
+    const delay = Math.random() * 8; // Start delay
     const speedClass = Math.random() > 0.5 ? 'fast' : 'slow';
 
     bubble.style.width = `${size}px`;
@@ -269,7 +293,7 @@ for (let i = 0; i < bubbleCount; i++) {
 }
 
 // Typing animation
-const text = "Aiden Mori-Lair, Data & Dev Specialist."; // Updated text
+const text = "Aiden Mori-Lair, Data & Dev Specialist."; 
 let index = 0;
 const typingText = document.getElementById("typing-text");
 
@@ -277,15 +301,8 @@ function type() {
     if (index < text.length) {
         typingText.innerHTML += text.charAt(index);
         index++;
-        setTimeout(type, 80); // Faster typing speed
-    } else {
-        // Optional: Reset and start over after a delay
-        // setTimeout(() => {
-        //     typingText.innerHTML = '';
-        //     index = 0;
-        //     type();
-        // }, 5000);
-    }
+        setTimeout(type, 60); // Even faster typing speed
+    } 
 }
 type();
 
@@ -299,8 +316,9 @@ window.addEventListener("scroll", () => {
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
-        // Check if the current scroll position is within the section bounds
-        if (pageYOffset >= sectionTop - sectionHeight / 3) {
+        
+        // Offset to trigger the active state earlier
+        if (pageYOffset >= sectionTop - 300) { 
             current = section.getAttribute("id");
         }
     });
@@ -308,6 +326,7 @@ window.addEventListener("scroll", () => {
     // Handle the active class for the navigation links
     navLinks.forEach(a => {
         a.classList.remove("active");
+        // Check both href and hero section link
         if (a.getAttribute("href").substring(1) === current) {
             a.classList.add("active");
         }
