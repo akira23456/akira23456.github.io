@@ -1,369 +1,160 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aiden Mori-Lair - Portfolio (Purple Accent)</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aiden Mori-Lair - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<style>
-/* Custom Configuration for Tailwind Colors */
-:root {
-    --color-accent: #a855f7; /* Purple-500 - Primary Accent Color */
-    --color-bg-dark: #0a0a0a; /* True Black */
-    --color-card-dark: #171717; /* Dark Gray */
-    --color-text-light: #e5e7eb;
-}
-
-/* Base Colors and Font for Flashier Look */
-body { 
-    font-family: 'Inter', sans-serif; 
-    background-color: var(--color-bg-dark);
-    color: var(--color-text-light);
-    overflow-x: hidden; 
-}
-.nav-link.active { color: var(--color-accent); border-bottom: 2px solid var(--color-accent); } 
-
-/* Custom Scrollbar */
-body::-webkit-scrollbar { width: 8px; }
-body::-webkit-scrollbar-track { background: var(--color-card-dark); }
-body::-webkit-scrollbar-thumb { background-color: #4b5563; border-radius: 4px; }
-
-/* Bubbly Background - Purple Colors and Animation Speed */
-.bubbly-background { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; }
-.bubble { 
-    position: absolute; 
-    background-color: rgba(168, 85, 247, 0.1); /* Purple bubble color */
-    border-radius: 50%; 
-    pointer-events: none; 
-    opacity: 0; 
-    animation: bubble-movement linear infinite; 
-    border: 1px solid rgba(168, 85, 247, 0.2); 
-}
-.bubble.slow { animation-duration: 20s; }
-.bubble.fast { animation-duration: 10s; }
-@keyframes bubble-movement { 
-    0% { transform: translateY(100vh) scale(0.5); opacity: 0; } 
-    50% { opacity: 0.7; } 
-    100% { transform: translateY(-100vh) scale(1.2); opacity: 0; } 
-}
-
-/* Typing Effect Cursor */
-.typing-cursor { 
-    font-weight: 300; 
-    animation: blink-caret .75s step-end infinite; 
-    border-right: 3px solid; 
-}
-@keyframes blink-caret { 
-    from, to { border-color: transparent } 
-    50% { border-color: var(--color-accent); } 
-}
-
-/* Project Card Hover Effect */
-.project-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    background-color: var(--color-card-dark);
-    border-color: #374151; /* gray-700 */
-}
-.project-card:hover {
-    transform: translateY(-8px) scale(1.01);
-    box-shadow: 0 15px 30px rgba(168, 85, 247, 0.25); /* Stronger purple glow */
-    border-color: var(--color-accent);
-}
-
-/* Custom icon placeholder class */
-.project-icon-placeholder {
-    width: 100%;
-    max-height: 400px;
-    height: 100%; 
-    min-height: 250px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0.75rem;
-    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
-}
-
-/* Gradient Hero Text */
-.hero-gradient-text {
-    background-image: linear-gradient(to right, #ffffff, var(--color-accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-}
-</style>
-</head>
-<body class="antialiased">
-
-<div id="bubbly-bg" class="bubbly-background"></div>
-
-<div class="relative z-10">
-<header class="sticky top-0 z-50 bg-stone-950 bg-opacity-95 backdrop-blur-md p-4 shadow-2xl border-b border-gray-800">
-<nav class="container mx-auto flex justify-between items-center">
-<a href="#hero" class="text-2xl font-black text-white hover:text-purple-400 transition-colors tracking-wider">Aiden Mori-Lair<span class="text-purple-500">.</span></a>
-<div class="hidden md:flex space-x-8 text-base font-semibold">
-<a href="#about" class="nav-link transition-colors text-gray-300 hover:text-purple-400">About</a>
-<a href="#projects" class="nav-link transition-colors text-gray-300 hover:text-purple-400">Projects</a>
-<a href="#contact" class="nav-link transition-colors text-gray-300 hover:text-purple-400">Contact</a>
-</div>
-</nav>
-</header>
-
-<section id="hero" class="container mx-auto py-24 px-6 md:px-12 text-center min-h-screen flex flex-col justify-center items-center">
-<div class="space-y-6">
-<p class="text-xl font-bold text-purple-400 uppercase tracking-widest animate-pulse">Welcome to my universe</p>
-<h1 class="text-6xl md:text-8xl font-black leading-tight tracking-tighter">
-<span id="typing-text" class="hero-gradient-text"></span><span class="typing-cursor border-purple-400"></span>
-</h1>
-<p class="text-xl md:text-2xl max-w-3xl mx-auto text-gray-400 font-light">
-A passionate data analyst and developer, specializing in turning complex data into actionable insights and building innovative, scalable solutions.
-</p>
-<a href="#projects" class="inline-block mt-10 px-10 py-4 bg-purple-500 text-gray-900 font-extrabold text-lg rounded-full shadow-2xl shadow-purple-500/50 hover:bg-purple-600 transition-all duration-300 transform hover:scale-105 hover:shadow-purple-400/80">
-Explore My Work <span aria-hidden="true">&rarr;</span>
-</a>
-</div>
-</section>
-
-<section id="about" class="py-24 px-6 md:px-12">
-<div class="container mx-auto flex flex-col md:flex-row items-center justify-center space-y-12 md:space-y-0 md:space-x-16">
-<div class="flex-shrink-0 relative">
-<div class="absolute inset-0 border-4 border-purple-500 rounded-full animate-ping opacity-25"></div>
-<img src="https://akira23456.github.io/1727299565244.jpg" alt="Aiden Mori-Lair's profile photo" class="w-64 h-64 rounded-full border-4 border-purple-500 object-cover shadow-2xl hover:shadow-purple-500/50 transition-shadow duration-300">
-</div>
-<div class="max-w-xl text-center md:text-left space-y-6">
-<h2 class="text-5xl font-extrabold text-white mb-4 border-b-4 border-purple-500/50 inline-block pb-1">About Me</h2>
-<p class="text-gray-300 leading-relaxed text-lg">
-I am a student at the University of Georgia, pursuing a dual degree in **Computer Science** and **Financial Mathematics**. My focus is on leveraging **quantitative analysis** to solve complex business challenges, holding certificates in **FinTech** and **Google Data Analytics** (both in progress).
-</p>
-<p class="text-gray-400 leading-relaxed text-base">
-My experience centers on **Data Analysis** and **Consulting**. As a FinTech Student Consultant, I identify operational risks in transaction workflows and propose strategies for reliability, even contributing design for an agentic AI error-flagging system. Through projects, I build robust data pipelines in Python (Pandas, PyTorch) for financial forecasting and develop interactive dashboards (Tableau/Recharts) to visualize churn drivers and key performance indicators.
-</p>
-</div>
-</div>
-</section>
-
-
-<section id="projects" class="py-24 px-6 md:px-12">
-<div class="container mx-auto">
-<h2 class="text-5xl font-extrabold text-white text-center mb-16">My Creative Arsenal</h2>
-<div class="grid grid-cols-1 gap-12">
-
-<div class="project-card flex flex-col md:flex-row items-center md:items-start p-8 rounded-3xl shadow-2xl border transition-all duration-300 space-y-8 md:space-y-0 md:space-x-12">
-<div class="w-full md:w-1/3 flex justify-center">
-    <div class="project-icon-placeholder bg-blue-900/40 border border-blue-700">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-40 w-40 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-        </svg>
-    </div>
-</div>
-<div class="w-full md:w-2/3 text-center md:text-left space-y-4">
-<h3 class="text-3xl font-bold text-white tracking-wide">Financial_KPI</h3>
-<p class="text-gray-300 leading-relaxed">
-Developed an interactive financial analytics dashboard tracking KPIs across 260+ companies, including ROE, Debt-to-Equity, and Current Ratio. Built and maintained a Python-based data pipeline (Pandas, NumPy) with SQL and Excel for cleaning, merging, validating, and transforming raw financial statement CSVs for accurate analysis. Engineered a PyTorch pipeline to forecast ROE and Debt-to-Equity, achieving low MAE and enabling predictive insights. Created an interactive web dashboard using HTML, Recharts, and Tailwind CSS to visualize financial trends and machine learning predictions.
-</p>
-<a href="https://github.com/akira23456/Financial_KPI" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 px-8 py-3 text-sm font-extrabold text-blue-300 bg-blue-700/60 rounded-full shadow-md hover:bg-blue-600/80 transition-all transform hover:scale-105">
-View Codebase <span aria-hidden="true">→</span>
-</a>
-</div>
-</div>
-
-<div class="project-card flex flex-col md:flex-row items-center md:items-start p-8 rounded-3xl shadow-2xl border transition-all duration-300 space-y-8 md:space-y-0 md:space-x-12">
-<div class="w-full md:w-1/3 flex justify-center">
-    <div class="project-icon-placeholder bg-red-900/40 border border-red-700">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-40 w-40 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
-            <path stroke-linecap="round" stroke-linejoin="round" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
-        </svg>
-    </div>
-</div>
-<div class="w-full md:w-2/3 text-center md:text-left space-y-4">
-<h3 class="text-3xl font-bold text-white tracking-wide">Churn-Project</h3>
-<p class="text-gray-300 leading-relaxed">
-Built a customer churn dashboard using MySQL, Python (Pandas), and Tableau. Identified key churn drivers: month-to-month contracts (42.7% churn), first 1-2 months of tenure (45.6% churn), and Fiber optic internet (41.9% churn). Designed relational database schema, performed data cleaning, and created visualizations highlighting churn patterns.
-</p>
-<a href="https://github.com/akira23456/Churn-Project" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 px-8 py-3 text-sm font-extrabold text-red-300 bg-red-700/60 rounded-full shadow-md hover:bg-red-600/80 transition-all transform hover:scale-105">
-View Codebase <span aria-hidden="true">→</span>
-</a>
-</div>
-</div>
-
-<div class="project-card flex flex-col md:flex-row items-center md:items-start p-8 rounded-3xl shadow-2xl border transition-all duration-300 space-y-8 md:space-y-0 md:space-x-12">
-<div class="w-full md:w-1/3 flex justify-center">
-    <div class="project-icon-placeholder bg-purple-900/40 border border-purple-700">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-40 w-40 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.764v6.472a1 1 0 01-1.447.888L15 14.5M4 18h10a2 2 0 002-2V8a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2z" />
-        </svg>
-    </div>
-</div>
-<div class="w-full md:w-2/3 text-center md:text-left space-y-4">
-<h3 class="text-3xl font-bold text-white tracking-wide">UGAHacks-Project</h3>
-<p class="text-gray-300 leading-relaxed">
-Developed a TikTok-style video feed web app enabling communication between creators and fans. Implemented frontend using React and backend using Django, connecting to a relational database for efficient data storage.
-</p>
-<a href="https://github.com/akira23456/UGAHacks-Project" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 px-8 py-3 text-sm font-extrabold text-purple-300 bg-purple-700/60 rounded-full shadow-md hover:bg-purple-600/80 transition-all transform hover:scale-105">
-View Repository <span aria-hidden="true">→</span>
-</a>
-</div>
-</div>
-
-<div class="project-card flex flex-col md:flex-row items-center md:items-start p-8 rounded-3xl shadow-2xl border transition-all duration-300 space-y-8 md:space-y-0 md:space-x-12">
-<div class="w-full md:w-1/3 flex justify-center">
-    <div class="project-icon-placeholder bg-emerald-900/40 border border-emerald-700">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-40 w-40 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h.01M7 12h.01M7 15h.01M17 12h.01M17 15h.01M12 12h.01M12 15h.01M4 21h16a2 2 0 002-2V6a2 2 0 00-2-2H4a2 2 0 00-2 2v13a2 2 0 002 2z" />
-        </svg>
-    </div>
-</div>
-<div class="w-full md:w-2/3 text-center md:text-left space-y-4">
-<h3 class="text-3xl font-bold text-white tracking-wide">Optimal-Schedule-Builder</h3>
-<p class="text-gray-300 leading-relaxed">
-Designed backend database logic for a UGA schedule-building application. Integrated Java backend models with Spring Boot & Spring JPA.
-</p>
-<a href="https://github.com/akira23456/Optimal-Schedule-Builder" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 px-8 py-3 text-sm font-extrabold text-emerald-300 bg-emerald-700/60 rounded-full shadow-md hover:bg-emerald-600/80 transition-all transform hover:scale-105">
-View Project Repository <span aria-hidden="true">→</span>
-</a>
-</div>
-</div>
-
-<div class="project-card flex flex-col md:flex-row items-center md:items-start p-8 rounded-3xl shadow-2xl border transition-all duration-300 space-y-8 md:space-y-0 md:space-x-12">
-<div class="w-full md:w-1/3 flex justify-center">
-    <div class="project-icon-placeholder bg-sky-900/40 border border-sky-700">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-40 w-40 text-sky-400">
-            <path fill-rule="evenodd" d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.183a.75.75 0 0 0-1.061-1.06l-1.591 1.592a.75.75 0 1 0 1.06 1.06l1.592-1.591ZM21.75 12h-2.25a.75.75 0 0 0 0 1.5H22.5v-1.5ZM4.207 7.743a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.591 1.592ZM12 18a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0v-2.25a.75.75 0 0 1 .75-.75ZM5.772 17.612a.75.75 0 0 0-1.061 1.06l1.591 1.591a.75.75 0 0 0 1.06-1.06l-1.59-1.591ZM18.894 17.612l-1.591 1.591a.75.75 0 1 0 1.06 1.06l1.592-1.59a.75.75 0 0 0-1.062-1.06Z" clip-rule="evenodd" />
-        </svg>
-    </div>
-</div>
-<div class="w-full md:w-2/3 text-center md:text-left space-y-4">
-<h3 class="text-3xl font-bold text-white tracking-wide">Weather App</h3>
-<p class="text-gray-300 leading-relaxed">
-Developed a functional weather application that consumes external APIs to display current weather conditions. The app specifically tracks air quality data in addition to standard metrics like temperature, humidity, and forecasts, providing comprehensive environmental data to the user.
-</p>
-<a href="https://github.com/akira23456/CS1302-API-App" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 px-8 py-3 text-sm font-extrabold text-sky-300 bg-sky-700/60 rounded-full shadow-md hover:bg-sky-600/80 transition-all transform hover:scale-105">
-View Project Repository <span aria-hidden="true">→</span>
-</a>
-</div>
-</div>
-
-</div>
-</section>
-
-
-<section id="contact" class="py-24 px-6 md:px-12">
-<div class="container mx-auto text-center space-y-8">
-<h2 class="text-5xl font-extrabold text-white mb-4">Let's Connect & Create</h2>
-<p class="text-gray-400 mb-8 max-w-2xl mx-auto text-lg">
-I'm always open to new opportunities and collaborations. Reach out to discuss a project or just to say hello!
-</p>
-<div class="flex justify-center space-x-10">
-<a href="https://www.linkedin.com/in/aiden-mori-lair-a61708239" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-purple-500 transition-colors transform hover:scale-125 p-3 bg-gray-900 rounded-full shadow-xl">
-<svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.761 0-.971.784-1.76 1.75-1.76s1.75.789 1.75 1.76c0 .971-.784 1.761-1.75 1.761zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-</a>
-<a href="https://github.com/akira23456" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-purple-500 transition-colors transform hover:scale-125 p-3 bg-gray-900 rounded-full shadow-xl">
-<svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.6.11.82-.26.82-.577v-2.213c-3.336.724-4.032-1.61-4.032-1.61-.546-1.378-1.332-1.745-1.332-1.745-1.089-.745.083-.729.083-.729 1.203.085 1.838 1.238 1.838 1.238 1.07 1.835 2.809 1.305 3.493.997.108-.775.419-1.305.762-1.602-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.469-2.385 1.238-3.228-.124-.303-.537-1.527.118-3.181 0 0 1.006-.322 3.303 1.235 1.204-.334 2.493-.5 3.774-.504 1.28.004 2.569.17 3.774.504 2.296-1.557 3.303-1.235 3.303-1.235.655 1.654.242 2.878.118 3.181.77.843 1.238 1.918 1.238 3.228 0 4.59-2.805 5.623-5.474 5.922.43.375.82 1.125.82 2.273v3.35c0 .317.217.687.825.576C20.565 21.802 24 17.302 24 12 24 5.373 18.627 0 12 0z"/></svg>
-</a>
-<a href="https://akira23456.github.io/resume.pdf" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-purple-500 transition-colors transform hover:scale-125 p-3 bg-gray-900 rounded-full shadow-xl">
-<svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zM14 3.5V9h5.5L14 3.5z"/></svg>
-</a>
-</div>
-</div>
-</section>
-
-</div>
-
-<script>
-// Bubbly Background Generation
-const bubblyBg = document.getElementById('bubbly-bg');
-const bubbleCount = 20;
-
-for (let i = 0; i < bubbleCount; i++) {
-    const bubble = document.createElement('div');
-    bubble.classList.add('bubble');
-    const size = Math.random() * 90 + 30; // Size between 30px and 120px
-    const startX = Math.random() * 100; // Start position X
-    const delay = Math.random() * 8; // Start delay
-    const speedClass = Math.random() > 0.5 ? 'fast' : 'slow';
-
-    bubble.style.width = `${size}px`;
-    bubble.style.height = `${size}px`;
-    bubble.style.left = `${startX}vw`;
-    bubble.style.animationDelay = `${delay}s`;
-    bubble.classList.add(speedClass);
-    bubblyBg.appendChild(bubble);
-}
-
-// Typing animation cycles through an array of phrases
-const phrases = ["Aiden Mori-Lair.", "Aspiring Consultant.", "Data Analyst."];
-const typingText = document.getElementById("typing-text");
-let phraseIndex = 0; // Index for the phrases array
-let charIndex = 0; // Index for characters within the current phrase
-let isDeleting = false;
-const typingSpeed = 60; // Typing speed
-const deletingSpeed = 30; // Deleting speed
-const pauseBeforeDelete = 800; 
-const pauseBeforeType = 300; 
-
-function typeWriter() {
-    const currentPhrase = phrases[phraseIndex];
-    
-    if (isDeleting) {
-        // Deleting text
-        if (charIndex > 0) {
-            // Use substring to remove the last character
-            typingText.innerHTML = currentPhrase.substring(0, charIndex - 1);
-            charIndex--;
-            setTimeout(typeWriter, deletingSpeed);
-        } else {
-            isDeleting = false;
-            // Move to the next phrase in the array, wrapping around
-            phraseIndex = (phraseIndex + 1) % phrases.length;
-            setTimeout(typeWriter, pauseBeforeType); 
-        }
-    } else {
-        // Typing text
-        if (charIndex < currentPhrase.length) {
-            // Use substring to add the next character
-            typingText.innerHTML = currentPhrase.substring(0, charIndex + 1);
-            charIndex++;
-            setTimeout(typeWriter, typingSpeed);
-        } else {
-            isDeleting = true;
-            setTimeout(typeWriter, pauseBeforeDelete); 
-        }
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0a0a0a;
+      color: #f5f5f5;
+      overflow-x: hidden;
     }
-}
 
-typeWriter();
+    /* Remove random dashes or separators */
+    section {
+      border: none !important;
+    }
+    section::before,
+    section::after {
+      content: none !important;
+    }
 
+    .gradient-text {
+      background: linear-gradient(90deg, #9333ea, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-// Active Navigation Link Scroll Logic
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".nav-link");
+    .project-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-window.addEventListener("scroll", () => {
-    let current = "";
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        
-        // Offset to trigger the active state earlier
-        if (pageYOffset >= sectionTop - 300) { 
-            current = section.getAttribute("id");
-        }
-    });
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 20px rgba(147, 51, 234, 0.4);
+    }
 
-    // Handle the active class for the navigation links
-    navLinks.forEach(a => {
-        a.classList.remove("active");
-        // Check both href and hero section link
-        if (a.getAttribute("href").substring(1) === current) {
-            a.classList.add("active");
-        }
-    });
-});
-</script>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body class="bg-black text-gray-100">
+
+  <!-- Navigation -->
+  <header class="fixed top-0 left-0 w-full bg-black/70 backdrop-blur-lg shadow-lg z-50">
+    <nav class="container mx-auto flex justify-between items-center py-4 px-6">
+      <h1 class="text-2xl font-bold gradient-text">Aiden Mori-Lair</h1>
+      <ul class="flex space-x-6 text-lg">
+        <li><a href="#about" class="hover:text-purple-400">About</a></li>
+        <li><a href="#projects" class="hover:text-purple-400">Projects</a></li>
+        <li><a href="#contact" class="hover:text-purple-400">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="min-h-screen flex flex-col justify-center items-center text-center px-6">
+    <h2 class="text-5xl md:text-6xl font-extrabold mb-4 gradient-text">Hey, I’m Aiden Mori-Lair</h2>
+    <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mb-6">
+      Data Analyst & Developer passionate about analytics, AI, and building intelligent solutions.
+    </p>
+    <a href="#projects" class="px-8 py-4 bg-purple-600 text-white rounded-full shadow-lg hover:bg-purple-700 transition-transform transform hover:scale-105">
+      Explore My Work →
+    </a>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-24 bg-gradient-to-b from-black via-gray-900 to-black text-center">
+    <div class="container mx-auto px-6 max-w-4xl">
+      <h3 class="text-4xl font-bold mb-6 gradient-text">About Me</h3>
+      <p class="text-lg text-gray-300 leading-relaxed">
+        I’m a University of Georgia student specializing in Data Analytics and Machine Learning. I create solutions that blend data science, business strategy, and design to drive better insights. My projects range from financial analytics dashboards to AI-driven applications.
+      </p>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-24 bg-black text-center">
+    <div class="container mx-auto px-6">
+      <h3 class="text-4xl font-bold mb-12 gradient-text">Projects</h3>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+        <!-- Financial KPI Dashboard -->
+        <div class="project-card bg-gray-900 rounded-2xl p-6 shadow-lg">
+          <h4 class="text-2xl font-semibold mb-3">Financial KPI Analytics Dashboard</h4>
+          <p class="text-gray-400 mb-4">
+            Interactive dashboard analyzing financial performance across 260+ companies, using Python (Pandas, NumPy) and Power BI visualizations.
+          </p>
+          <a href="https://github.com/akira23456/Financial_KPI" target="_blank" class="text-purple-400 hover:text-purple-500 font-semibold">View Project →</a>
+        </div>
+
+        <!-- Weather App -->
+        <div class="project-card bg-gray-900 rounded-2xl p-6 shadow-lg">
+          <h4 class="text-2xl font-semibold mb-3">Weather Forecast App</h4>
+          <p class="text-gray-400 mb-4">
+            A responsive weather web app fetching real-time data using OpenWeather API, built with JavaScript, Tailwind CSS, and async data handling.
+          </p>
+          <a href="https://github.com/akira23456/WeatherApp" target="_blank" class="text-purple-400 hover:text-purple-500 font-semibold">View Project →</a>
+        </div>
+
+        <!-- Data Pipeline Automation -->
+        <div class="project-card bg-gray-900 rounded-2xl p-6 shadow-lg">
+          <h4 class="text-2xl font-semibold mb-3">Data Pipeline Automation</h4>
+          <p class="text-gray-400 mb-4">
+            Automated ETL pipeline that cleans, merges, and transforms raw CSV datasets into analytics-ready tables using Python and SQL.
+          </p>
+          <a href="https://github.com/akira23456/DataPipeline" target="_blank" class="text-purple-400 hover:text-purple-500 font-semibold">View Project →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-24 bg-gradient-to-b from-gray-900 to-black text-center">
+    <div class="container mx-auto px-6">
+      <h3 class="text-4xl font-bold mb-8 gradient-text">Get In Touch</h3>
+      <p class="text-gray-300 mb-10 text-lg">
+        Interested in collaborating or discussing data-driven projects? Reach out via email or connect below.
+      </p>
+
+      <div class="flex justify-center space-x-8">
+        <!-- Email -->
+        <a href="mailto:aidenklair@gmail.com" class="text-gray-400 hover:text-purple-500 transition-colors transform hover:scale-125 p-3 bg-gray-900 rounded-full shadow-xl">
+          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M4 4h16v16H4z" fill="none"/><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zM4 6h16v.511l-8 4.889-8-4.889V6zm0 12V8.489l8 4.888 8-4.888V18H4z"/></svg>
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/aidenmori-lair" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-purple-500 transition-colors transform hover:scale-125 p-3 bg-gray-900 rounded-full shadow-xl">
+          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14a5 5 0 0 0-5 5v14a5 5 0 0 0 5 5h14a5 5 0 0 0 5-5v-14a5 5 0 0 0-5-5zM8 19H5V9h3v10zM6.5 7.75a1.75 1.75 0 1 1 0-3.5 1.75 1.75 0 0 1 0 3.5zM19 19h-3v-5c0-1.1-.9-2-2-2s-2 .9-2 2v5h-3V9h3v1.07a3.001 3.001 0 0 1 5 2.43V19z"/></svg>
+        </a>
+
+        <!-- GitHub -->
+        <a href="https://github.com/akira23456" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-purple-500 transition-colors transform hover:scale-125 p-3 bg-gray-900 rounded-full shadow-xl">
+          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.648.5.5 5.648.5 12a11.49 11.49 0 0 0 7.865 10.938c.574.105.784-.25.784-.557 0-.275-.01-1.004-.015-1.972-3.2.695-3.877-1.544-3.877-1.544-.523-1.33-1.277-1.686-1.277-1.686-1.045-.714.08-.7.08-.7 1.155.081 1.764 1.186 1.764 1.186 1.027 1.76 2.695 1.252 3.352.958.104-.744.403-1.252.733-1.54-2.555-.29-5.238-1.277-5.238-5.685 0-1.256.449-2.285 1.184-3.092-.118-.29-.513-1.453.112-3.03 0 0 .965-.309 3.162 1.181a10.8 10.8 0 0 1 2.879-.387 10.8 10.8 0 0 1 2.879.387c2.197-1.49 3.162-1.181 3.162-1.181.625 1.577.23 2.74.112 3.03.735.807 1.184 1.836 1.184 3.092 0 4.418-2.688 5.392-5.253 5.676.415.357.785 1.057.785 2.132 0 1.54-.014 2.78-.014 3.156 0 .309.21.667.79.555A11.49 11.49 0 0 0 23.5 12C23.5 5.648 18.352.5 12 .5z"/></svg>
+        </a>
+
+        <!-- Resume -->
+        <a href="https://akira23456.github.io/Resume.pdf" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-purple-500 transition-colors transform hover:scale-125 p-3 bg-gray-900 rounded-full shadow-xl">
+          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zM14 3.5V9h5.5L14 3.5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 bg-black text-gray-500">
+    <p>© 2025 Aiden Mori-Lair. All rights reserved.</p>
+  </footer>
 </body>
 </html>
