@@ -1,384 +1,232 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aiden Mori-Lair - Portfolio</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aiden Mori-Lair - Portfolio</title>
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet"
-  />
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --color-accent: #a855f7;
-      --color-bg-dark: #0a0a0a;
-      --color-card-dark: #171717;
-      --color-text-light: #e5e7eb;
-    }
+<style>
+:root {
+  --accent: #a855f7;
+  --accent2: #ec4899;
+  --bg-dark: #0a0a0a;
+  --card-dark: #171717;
+  --text-light: #e5e7eb;
+}
 
-    body {
-      font-family: "Inter", sans-serif;
-      background-color: var(--color-bg-dark);
-      color: var(--color-text-light);
-      overflow-x: hidden;
-    }
+/* General */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  overflow-x: hidden;
+}
 
-    /* Scroll Progress Bar */
-    #scrollProgress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 0%;
-      height: 6px;
-      background: linear-gradient(to right, #a855f7, #ec4899);
-      z-index: 9999;
-      transition: width 0.25s ease-out;
-    }
+/* Scroll Progress Bar */
+#scrollProgress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  background: linear-gradient(to right, var(--accent), var(--accent2));
+  width: 0%;
+  z-index: 9999;
+  transition: width 0.2s ease-out;
+}
 
-    /* Navigation */
-    .nav-link.active {
-      color: var(--color-accent);
-      border-bottom: 2px solid var(--color-accent);
-    }
+/* Navbar */
+nav a.active {
+  color: var(--accent);
+  font-weight: 600;
+}
 
-    /* Scrollbar */
-    body::-webkit-scrollbar {
-      width: 8px;
-    }
+/* Particle Background */
+.particle-background {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
+  background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+  overflow: hidden;
+}
 
-    body::-webkit-scrollbar-track {
-      background: var(--color-card-dark);
-    }
+/* Project Cards */
+.project-card {
+  background-color: var(--card-dark);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 20px rgba(168,85,247,0.3);
+}
 
-    body::-webkit-scrollbar-thumb {
-      background-color: #4b5563;
-      border-radius: 4px;
-    }
+/* Arrival Bar */
+.arrival-bar {
+  width: 0%;
+  height: 6px;
+  background: linear-gradient(to right, var(--accent), var(--accent2));
+  border-radius: 10px;
+  margin: 0 auto;
+  transition: width 1.5s ease-in-out;
+}
+.arrival-bar.visible { width: 80%; }
 
-    /* Background effect */
-    body::after {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      background: radial-gradient(
-        circle at center,
-        rgba(168, 85, 247, 0.03) 0%,
-        rgba(10, 10, 10, 1) 90%
-      );
-    }
-
-    .particle-background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -2;
-      background-color: var(--color-bg-dark);
-    }
-
-    .particle-background::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(rgba(168, 85, 247, 0.6) 2px, transparent 2px);
-      background-size: 25px 25px;
-      animation: background-pan 80s linear infinite, sparkle-blink 4s ease-in-out infinite alternate;
-    }
-
-    .particle-background::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(rgba(255, 255, 255, 0.5) 1.5px, transparent 1.5px);
-      background-size: 40px 40px;
-      animation: sparkle-blink 5.5s ease-out infinite alternate-reverse 1s,
-        sparkle-pan-b 100s linear infinite alternate-reverse;
-    }
-
-    @keyframes background-pan {
-      0% {
-        background-position: 0% 0%;
-      }
-      100% {
-        background-position: -100px 100px;
-      }
-    }
-
-    @keyframes sparkle-blink {
-      0%, 100% {
-        opacity: 0.2;
-      }
-      50% {
-        opacity: 0.8;
-      }
-    }
-
-    @keyframes sparkle-pan-b {
-      0% {
-        transform: translate(0, 0);
-      }
-      100% {
-        transform: translate(-20px, -15px);
-      }
-    }
-
-    /* Typing Cursor */
-    .typing-cursor {
-      font-weight: 300;
-      border-right: 3px solid;
-      animation: blink-caret 0.75s step-end infinite;
-    }
-
-    @keyframes blink-caret {
-      from,
-      to {
-        border-color: transparent;
-      }
-      50% {
-        border-color: var(--color-accent);
-      }
-    }
-
-    /* Project Card */
-    .project-card {
-      background-color: var(--color-card-dark);
-      border-color: #374151;
-      transition: all 0.3s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 15px 30px rgba(168, 85, 247, 0.25);
-      border-color: var(--color-accent);
-    }
-
-    .project-icon-placeholder img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      border-radius: 0.75rem;
-      padding: 1rem;
-    }
-
-    /* Gradient Hero Text */
-    .hero-gradient-text {
-      background-image: linear-gradient(to right, #ffffff, var(--color-accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    /* Contact Arrival Bar */
-    .arrival-bar {
-      width: 0%;
-      height: 6px;
-      background: linear-gradient(to right, #a855f7, #ec4899);
-      border-radius: 10px;
-      margin: 0 auto;
-      transition: width 1.5s ease-in-out;
-    }
-
-    .arrival-bar.visible {
-      width: 80%;
-    }
-  </style>
+/* Typing Animation */
+.typing {
+  border-right: 2px solid var(--accent);
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 3s steps(30) infinite alternate, blink 0.75s step-end infinite;
+}
+@keyframes typing { from {width: 0;} to {width: 100%;} }
+@keyframes blink { 50% { border-color: transparent; } }
+</style>
 </head>
 
 <body class="antialiased">
-  <!-- Scroll Progress Bar -->
-  <div id="scrollProgress"></div>
 
-  <!-- Background -->
-  <div class="particle-background"></div>
+<!-- Scroll Progress -->
+<div id="scrollProgress"></div>
 
-  <!-- HEADER -->
-  <header class="sticky top-0 z-50 bg-stone-950 bg-opacity-95 backdrop-blur-md p-4 border-b border-gray-800">
-    <nav class="container mx-auto flex justify-between items-center">
-      <a href="#hero" class="text-2xl font-black text-white hover:text-purple-400 transition-colors tracking-wider">
-        Aiden Mori-Lair<span class="text-purple-500">.</span>
-      </a>
-      <div class="hidden md:flex space-x-8 text-base font-semibold">
-        <a href="#about" class="nav-link text-gray-300 hover:text-purple-400 transition-colors">About</a>
-        <a href="#projects" class="nav-link text-gray-300 hover:text-purple-400 transition-colors">Projects</a>
-        <a href="#contact" class="nav-link text-gray-300 hover:text-purple-400 transition-colors">Contact</a>
-      </div>
-    </nav>
-  </header>
+<!-- Particle Background -->
+<div class="particle-background"></div>
 
-  <!-- HERO -->
-  <section id="hero" class="container mx-auto py-24 px-6 md:px-12 text-center min-h-screen flex flex-col justify-center items-center">
-    <div class="space-y-6">
-      <p class="text-xl font-bold text-purple-400 uppercase tracking-widest animate-pulse">Welcome to my universe</p>
-      <h1 class="text-6xl md:text-8xl font-black leading-tight tracking-tighter">
-        <span id="typing-text" class="hero-gradient-text"></span>
-        <span class="typing-cursor border-purple-400"></span>
-      </h1>
-      <p class="text-xl md:text-2xl max-w-3xl mx-auto text-gray-400 font-light">
-        A passionate data analyst and developer, specializing in transforming complex data into actionable insights and scalable solutions.
+<!-- Navbar -->
+<header class="fixed top-0 left-0 w-full bg-black/90 backdrop-blur z-50">
+  <nav class="container mx-auto flex justify-between items-center px-6 py-4 text-gray-200">
+    <h1 class="text-xl font-bold">Aiden Mori-Lair<span class="text-purple-500">.</span></h1>
+    <div class="space-x-8 text-lg">
+      <a href="#about" class="hover:text-purple-400">About</a>
+      <a href="#projects" class="hover:text-purple-400">Projects</a>
+      <a href="#contact" class="hover:text-purple-400">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section id="about" class="pt-40 pb-32 px-6 text-center">
+  <h2 class="text-5xl font-extrabold mb-4">Hi, I'm <span class="text-purple-500">Aiden</span></h2>
+  <p class="typing mx-auto text-xl text-gray-400 max-w-xl">
+    Data & Analytics | Tech Consulting | Creative Engineering
+  </p>
+</section>
+
+<!-- Projects -->
+<section id="projects" class="py-24 px-6 md:px-12">
+  <div class="container mx-auto text-center mb-16">
+    <h2 class="text-4xl font-extrabold mb-6">Projects</h2>
+  </div>
+
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Financial KPI -->
+    <div class="project-card p-6 text-left">
+      <h3 class="text-2xl font-semibold mb-3 text-purple-400">Financial KPI Dashboard</h3>
+      <p class="text-gray-300 leading-relaxed mb-4">
+        Full-stack analytics dashboard analyzing KPIs for 260+ companies. Python ETL (Pandas, NumPy, SQL) pipeline, PyTorch predictive models, and interactive Recharts dashboard visualizing ROE & Debt-to-Equity trends.
       </p>
-      <a href="#projects" class="inline-block mt-10 px-10 py-4 bg-purple-500 text-gray-900 font-extrabold text-lg rounded-full shadow-2xl hover:bg-purple-600 transition-all duration-300 transform hover:scale-105">
-        Explore My Work →
-      </a>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="py-24 px-6 md:px-12">
-    <div class="container mx-auto flex flex-col md:flex-row items-center justify-center space-y-12 md:space-y-0 md:space-x-16">
-      <div class="flex-shrink-0 relative">
-        <img src="https://akira23456.github.io/1727299565244.jpg" alt="Aiden Mori-Lair's profile photo" class="w-64 h-64 rounded-full border-4 border-purple-500 object-cover shadow-2xl">
-      </div>
-      <div class="max-w-xl text-center md:text-left space-y-6">
-        <h2 class="text-5xl font-extrabold text-white mb-4 border-b-4 border-purple-500/50 inline-block pb-1">
-          About Me
-        </h2>
-        <p class="text-gray-300 leading-relaxed text-lg">
-          I’m a student at the University of Georgia pursuing dual degrees in Computer Science and Financial Mathematics, focusing on bridging quantitative analysis and data technology to solve complex business challenges.
-        </p>
-        <p class="text-gray-400 leading-relaxed text-base">
-          My experience centers on Data Analytics and Consulting. As a FinTech Student Consultant, I analyze transaction workflows, identify risks, and design AI-driven monitoring tools. I’ve built data pipelines (Python, Pandas, PyTorch) and interactive dashboards (Tableau, Recharts) for business decision-making.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects" class="py-24 px-6 md:px-12">
-    <div class="container mx-auto text-center mb-16">
-      <h2 class="text-5xl font-extrabold text-white mb-4">Projects</h2>
-      <p class="text-gray-400 text-lg">A showcase of my work in analytics, development, and innovation.</p>
+      <a href="https://github.com/akira23456/Financial_KPI" target="_blank" class="text-purple-400 hover:underline">View on GitHub →</a>
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-      <!-- Financial KPI -->
-      <div class="project-card p-6 border rounded-2xl">
-        <div class="project-icon-placeholder mb-4">
-          <img src="https://cdn-icons-png.flaticon.com/512/9308/9308267.png" alt="Finance Dashboard Icon">
-        </div>
-        <h3 class="text-2xl font-bold mb-2 text-purple-400">Financial KPI Dashboard</h3>
-        <p class="text-gray-300 leading-relaxed">
-          Developed a full-stack analytics dashboard for 260+ public companies. Built a Python ETL pipeline (Pandas, NumPy, SQL) and PyTorch regression models predicting ROE and D/E ratios. Interactive Recharts dashboard visualizes trends and ML insights for investors.
-        </p>
-      </div>
-
-      <!-- Churn -->
-      <div class="project-card p-6 border rounded-2xl">
-        <div class="project-icon-placeholder mb-4">
-          <img src="https://cdn-icons-png.flaticon.com/512/3159/3159310.png" alt="Churn Analytics Icon">
-        </div>
-        <h3 class="text-2xl font-bold mb-2 text-purple-400">Customer Churn Dashboard</h3>
-        <p class="text-gray-300 leading-relaxed">
-          Created a MySQL and Python data pipeline analyzing 7K+ customer records. Built Tableau dashboards highlighting churn patterns by tenure and contract type, reducing attrition risk by 15% through data-driven recommendations.
-        </p>
-      </div>
-
-      <!-- Culture App -->
-      <div class="project-card p-6 border rounded-2xl">
-        <div class="project-icon-placeholder mb-4">
-          <img src="https://cdn-icons-png.flaticon.com/512/924/924915.png" alt="Social App Icon">
-        </div>
-        <h3 class="text-2xl font-bold mb-2 text-purple-400">Immersive Culture Platform</h3>
-        <p class="text-gray-300 leading-relaxed">
-          Co-built a React + Django REST API app at UGAHacks. Enabled creators to share real-time cultural videos, using authentication, dynamic feeds, and media uploads. Focused on scalability and smooth UX.
-        </p>
-      </div>
-
-      <!-- Schedule Builder -->
-      <div class="project-card p-6 border rounded-2xl">
-        <div class="project-icon-placeholder mb-4">
-          <img src="https://cdn-icons-png.flaticon.com/512/2920/2920256.png" alt="Schedule Builder Icon">
-        </div>
-        <h3 class="text-2xl font-bold mb-2 text-purple-400">Optimal Schedule Builder</h3>
-        <p class="text-gray-300 leading-relaxed">
-          Engineered backend logic with Java Spring Boot and JPA for dynamic course scheduling. Optimized 5K+ possible combinations, supporting real-time updates and API endpoints used by 200+ test users.
-        </p>
-      </div>
-
-      <!-- Weather App -->
-      <div class="project-card p-6 border rounded-2xl">
-        <div class="project-icon-placeholder mb-4">
-          <img src="https://cdn-icons-png.flaticon.com/512/861/861059.png" alt="Weather App Icon">
-        </div>
-        <h3 class="text-2xl font-bold mb-2 text-purple-400">Weather & Air Quality App</h3>
-        <p class="text-gray-300 leading-relaxed">
-          Built a responsive weather app using OpenWeatherMap & IQAir APIs. Displayed live conditions (temp, humidity, AQI) using async JS fetch calls and a Tailwind CSS interface optimized for all devices.
-        </p>
-      </div>
+    <!-- Churn -->
+    <div class="project-card p-6 text-left">
+      <h3 class="text-2xl font-semibold mb-3 text-purple-400">Customer Churn Analysis</h3>
+      <p class="text-gray-300 leading-relaxed mb-4">
+        Designed MySQL + Python data pipeline and Tableau dashboard for 7K+ customer records. Identified churn drivers (tenure, contract type) and improved retention modeling by 15%.
+      </p>
+      <a href="https://github.com/akira23456/Churn_Project" target="_blank" class="text-purple-400 hover:underline">View on GitHub →</a>
     </div>
-  </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="py-24 px-6 md:px-12 text-center">
+    <!-- Immersive Culture -->
+    <div class="project-card p-6 text-left">
+      <h3 class="text-2xl font-semibold mb-3 text-purple-400">Immersive Culture</h3>
+      <p class="text-gray-300 leading-relaxed mb-4">
+        Hackathon social platform connecting creators & audiences through video feeds. Built with React frontend + Django REST backend, featuring live user updates & secure authentication.
+      </p>
+      <a href="https://github.com/akira23456/Immersive_Culture" target="_blank" class="text-purple-400 hover:underline">View on GitHub →</a>
+    </div>
+
+    <!-- Schedule Builder -->
+    <div class="project-card p-6 text-left">
+      <h3 class="text-2xl font-semibold mb-3 text-purple-400">Optimal Schedule Builder</h3>
+      <p class="text-gray-300 leading-relaxed mb-4">
+        Java Spring Boot backend for course scheduling. Managed 5K+ class combinations with JPA, resolving conflicts via dynamic query optimization.
+      </p>
+      <a href="https://github.com/akira23456/Schedule_Builder" target="_blank" class="text-purple-400 hover:underline">View on GitHub →</a>
+    </div>
+
+    <!-- Weather App -->
+    <div class="project-card p-6 text-left">
+      <h3 class="text-2xl font-semibold mb-3 text-purple-400">Weather App</h3>
+      <p class="text-gray-300 leading-relaxed mb-4">
+        Responsive weather dashboard using OpenWeatherMap + IQAir APIs. Displays real-time temperature, humidity, and AQI data with Tailwind-based adaptive UI.
+      </p>
+      <a href="https://github.com/akira23456/WeatherApp" target="_blank" class="text-purple-400 hover:underline">View on GitHub →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="py-24 px-6 md:px-12">
+  <div class="container mx-auto text-center space-y-8">
     <h2 class="text-5xl font-extrabold text-white mb-4">Let's Connect</h2>
-    <div id="arrival-bar" class="arrival-bar mb-6"></div>
+    <div id="arrival-bar" class="arrival-bar"></div>
     <p class="text-gray-400 mb-8 max-w-2xl mx-auto text-lg">
-      Reach out to collaborate, discuss projects, or just say hello!
+      Reach out to discuss a project or just to say hello!
     </p>
-    <div class="flex justify-center space-x-10">
-      <a href="mailto:aidenklair@gmail.com" class="px-6 py-3 bg-purple-600 rounded-full font-semibold hover:bg-purple-700 transition-all">Email</a>
-      <a href="https://linkedin.com" target="_blank" class="px-6 py-3 bg-purple-600 rounded-full font-semibold hover:bg-purple-700 transition-all">LinkedIn</a>
-      <a href="https://github.com/akira23456" target="_blank" class="px-6 py-3 bg-purple-600 rounded-full font-semibold hover:bg-purple-700 transition-all">GitHub</a>
-      <a href="resume.pdf" target="_blank" class="px-6 py-3 bg-purple-600 rounded-full font-semibold hover:bg-purple-700 transition-all">Resume</a>
+
+    <div class="flex justify-center space-x-10 text-3xl">
+      <a href="https://linkedin.com/in/aiden-mori-lair" target="_blank" class="hover:text-purple-400"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://github.com/akira23456" target="_blank" class="hover:text-purple-400"><i class="fa-brands fa-github"></i></a>
+      <a href="mailto:aidenklair@gmail.com" class="hover:text-purple-400"><i class="fa-solid fa-envelope"></i></a>
+      <a href="tel:+18478631994" class="hover:text-purple-400"><i class="fa-solid fa-phone"></i></a>
+      <a href="Aiden_Mori-Lair_Resume.pdf" target="_blank" class="hover:text-purple-400"><i class="fa-solid fa-file"></i></a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- SCRIPTS -->
-  <script>
-    // Typing Effect
-    const textArray = ["Data Analyst", "Developer", "Consultant", "Problem Solver"];
-    let textIndex = 0, charIndex = 0;
-    const typingSpeed = 100, delayBetween = 1200;
-    const typingElement = document.getElementById("typing-text");
+<!-- Scripts -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script>
+// Scroll progress
+window.addEventListener("scroll", () => {
+  const progress = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById("scrollProgress").style.width = progress + "%";
+});
 
-    function type() {
-      if (charIndex < textArray[textIndex].length) {
-        typingElement.textContent += textArray[textIndex].charAt(charIndex);
-        charIndex++;
-        setTimeout(type, typingSpeed);
-      } else {
-        setTimeout(erase, delayBetween);
-      }
-    }
-    function erase() {
-      if (charIndex > 0) {
-        typingElement.textContent = textArray[textIndex].substring(0, charIndex - 1);
-        charIndex--;
-        setTimeout(erase, 50);
-      } else {
-        textIndex = (textIndex + 1) % textArray.length;
-        setTimeout(type, 200);
-      }
-    }
-    document.addEventListener("DOMContentLoaded", type);
+// Active nav highlight
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav a");
 
-    // Scroll Progress Bar
-    const scrollProgress = document.getElementById("scrollProgress");
-    window.addEventListener("scroll", () => {
-      const scrollTop = document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrollPercent = (scrollTop / height) * 100;
-      scrollProgress.style.width = scrollPercent + "%";
-    });
+window.addEventListener("scroll", () => {
+  let current = "";
+  sections.forEach(sec => {
+    const top = sec.offsetTop - 200;
+    if (scrollY >= top) current = sec.getAttribute("id");
+  });
+  navLinks.forEach(link => {
+    link.classList.remove("active");
+    if (link.getAttribute("href").includes(current)) link.classList.add("active");
+  });
+});
 
-    // Arrival Bar
-    const contactSection = document.getElementById("contact");
-    const arrivalBar = document.getElementById("arrival-bar");
-    window.addEventListener("scroll", () => {
-      const rect = contactSection.getBoundingClientRect();
-      if (rect.top < window.innerHeight * 0.8) arrivalBar.classList.add("visible");
-    });
-  </script>
+// Arrival bar animation
+const contactSection = document.getElementById("contact");
+const arrivalBar = document.getElementById("arrival-bar");
+window.addEventListener("scroll", () => {
+  const rect = contactSection.getBoundingClientRect();
+  if (rect.top < window.innerHeight * 0.8) arrivalBar.classList.add("visible");
+});
+</script>
 </body>
 </html>
