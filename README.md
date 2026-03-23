@@ -50,19 +50,3 @@ It was designed to serve as both a **visual resume** and a **technical demonstra
 | **Hosting** | GitHub Pages |
 
 ---
-
-## ⚙️ Installation & Usage
-
-You can run this portfolio locally or deploy it to your own GitHub Pages site.
-
-### 🔧 Local Setup
-
-```bash
-# Clone the repository
-git clone https://github.com/akira23456/akira23456.github.io.git
-
-# Navigate into the project directory
-cd akira23456.github.io
-
-# Open the main file
-open index.html    # (or double-click index.html)
